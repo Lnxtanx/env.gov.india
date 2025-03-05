@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDGs in India - Progress & Implementation</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Enhanced SDG Page Styles */
+        .sdg-hero {
+            background: linear-gradient(135deg, #00689B 0%, #1A3668 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sdg-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .sdg-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .sdg-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .sdg-stat {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            min-width: 200px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sdg-stat .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .sdg-stat .label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .tab-container {
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 0 1rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            background: #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .tab-button.active {
+            background: #00689B;
+            color: white;
+        }
+
+        .sdg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .sdg-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .sdg-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .goal-header {
+            padding: 1.5rem;
+            color: white;
+            position: relative;
+        }
+
+        .goal-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        .goal-content {
+            padding: 1.5rem;
+        }
+
+        .goal-progress {
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: #00689B;
+            width: var(--progress);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .key-targets {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .key-targets li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .key-targets li:last-child {
+            border: none;
+        }
+
+        .india-focus {
+            background: #f8f9fa;
+            padding: 3rem 0;
+        }
+
+        .initiative-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .initiative-card h3 {
+            color: #00689B;
+            margin-bottom: 1rem;
+        }
+
+        .challenge-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00689B;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .action-card i {
+            font-size: 2.5rem;
+            color: #00689B;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .sdg-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .sdg-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .sdg-stat {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Dark mode styles */
+        .dark-mode .sdg-card,
+        .dark-mode .initiative-card,
+        .dark-mode .metric-card,
+        .dark-mode .action-card {
+            background: #2a2a35;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .tab-button {
+            background: #2a2a35;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .tab-button.active {
+            background: #4a4a6a;
+        }
+
+        .dark-mode .india-focus {
+            background: #1a1a25;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">🌍 Sustainable Future</a>
+            </div>
+            <div class="nav-links">
+                <a href="environmental.html">Environmental 🌱</a>
+                <a href="economic.html">Economic 💰</a>
+                <a href="social.html">Social 👥</a>
+                <a href="sdg.html" class="active">SDGs 🎯</a>
+                <a href="technology.html">Technology 🚀</a>
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle" title="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="notifications" title="Enable notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero sdg-hero animate__animated animate__fadeIn">
+            <div class="hero-content">
+                <h1 class="animate__animated animate__slideInDown">SDGs in India</h1>
+                <p class="animate__animated animate__slideInUp animate__delay-1s">Tracking Progress & Implementation of the 17 Global Goals</p>
+                <div class="sdg-stats animate__animated animate__fadeIn animate__delay-2s">
+                    <div class="sdg-stat">
+                        <span class="number">112</span>
+                        <span class="label">SDG Index Rank (2023)</span>
+                    </div>
+                    <div class="sdg-stat">
+                        <span class="number">66</span>
+                        <span class="label">Overall SDG Score</span>
+                    </div>
+                    <div class="sdg-stat">
+                        <span class="number">7</span>
+                        <span class="label">Goals On-Track</span>
+                    </div>
+                </div>
+            </div>
+            <div class="wave-animation">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#ffffff" fill-opacity="1" d="M0,192L48,186.7C96,181,192,171,288,154.7C384,139,480,117,576,128C672,139,768,181,864,186.7C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="overview">Overview</button>
+                <button class="tab-button" data-tab="social">Social Goals</button>
+                <button class="tab-button" data-tab="economic">Economic Goals</button>
+                <button class="tab-button" data-tab="environmental">Environmental Goals</button>
+            </div>
+        </div>
+
+        <div id="overview-tab" class="tab-content">
+            <section class="sdg-overview">
+                <h2>National Progress Overview</h2>
+                <div class="interactive-chart">
+                    <canvas id="sdgProgressChart"></canvas>
+                </div>
+                <div class="impact-form">
+                    <div class="input-group">
+                        <label for="sdg-select">Select SDG</label>
+                        <select id="sdg-select">
+                            <option value="1">Goal 1: No Poverty</option>
+                            <option value="2">Goal 2: Zero Hunger</option>
+                            <option value="3">Goal 3: Good Health and Well-being</option>
+                            <option value="4">Goal 4: Quality Education</option>
+                            <option value="5">Goal 5: Gender Equality</option>
+                            <option value="6">Goal 6: Clean Water and Sanitation</option>
+                            <option value="7">Goal 7: Affordable and Clean Energy</option>
+                            <option value="8">Goal 8: Decent Work and Economic Growth</option>
+                            <option value="9">Goal 9: Industry, Innovation and Infrastructure</option>
+                            <option value="10">Goal 10: Reduced Inequalities</option>
+                            <option value="11">Goal 11: Sustainable Cities and Communities</option>
+                            <option value="12">Goal 12: Responsible Consumption and Production</option>
+                            <option value="13">Goal 13: Climate Action</option>
+                            <option value="14">Goal 14: Life Below Water</option>
+                            <option value="15">Goal 15: Life on Land</option>
+                            <option value="16">Goal 16: Peace, Justice and Strong Institutions</option>
+                            <option value="17">Goal 17: Partnerships for the Goals</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="action-type">Action Type</label>
+                        <select id="action-type">
+                            <option value="volunteer">Volunteer Work</option>
+                            <option value="donation">Donation</option>
+                            <option value="advocacy">Advocacy</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="impact-value">Impact Value</label>
+                        <input type="number" id="impact-value" placeholder="Enter value">
+                    </div>
+                    <button type="button" id="log-impact">Log Impact</button>
+                </div>
+                <div id="impact-stats"></div>
+            </section>
+
+            <section class="sdg-grid">
+                <!-- Enhanced SDG cards with India-specific data -->
+                <div class="sdg-card" data-aos="fade-up" data-goal="1">
+                    <div class="goal-header" style="background-color: #E5243B;">
+                        <span class="goal-number">1</span>
+                        <h3>No Poverty</h3>
+                    </div>
+                    <div class="goal-content">
+                        <p>Eradicating extreme poverty in India</p>
+                        <div class="goal-progress">
+                            <div class="progress-bar" style="--progress: 65%"></div>
+                            <span class="progress-text">65% Progress</span>
+                        </div>
+                        <div class="india-initiatives">
+                            <h4>Key Initiatives:</h4>
+                            <ul class="key-targets">
+                                <li>PMGKY - Food security & financial aid</li>
+                                <li>MGNREGA - Rural employment guarantee</li>
+                                <li>DBT - Direct benefit transfer system</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Similar enhanced cards for other SDGs -->
+                <!-- Goal 2: Zero Hunger -->
+                <div class="sdg-card" data-aos="fade-up" data-goal="2">
+                    <div class="goal-header" style="background-color: #DDA63A;">
+                        <span class="goal-number">2</span>
+                        <h3>Zero Hunger</h3>
+                    </div>
+                    <div class="goal-content">
+                        <p>End hunger, achieve food security and improved nutrition</p>
+                        <div class="goal-progress">
+                            <div class="progress-bar" style="--progress: 58%"></div>
+                            <span class="progress-text">58% Progress</span>
+                        </div>
+                        <ul class="key-targets">
+                            <li>End malnutrition</li>
+                            <li>Sustainable agriculture</li>
+                            <li>Food security</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Additional Goals 3-17 following same pattern -->
+                <!-- Each with unique colors and content -->
+            </section>
+        </div>
+
+        <div id="social-tab" class="tab-content" style="display: none;">
+            <section class="india-focus">
+                <div class="container">
+                    <h2 class="text-center mb-5">Social Sustainability in India</h2>
+                    
+                    <!-- Education Section -->
+                    <div class="initiative-card" data-aos="fade-up">
+                        <h3><i class="fas fa-graduation-cap"></i> Education & Sustainability Awareness</h3>
+                        <div class="content-grid">
+                            <div class="success-box">
+                                <h4>Key Achievements:</h4>
+                                <ul>
+                                    <li>NEP 2020 implementation</li>
+                                    <li>Digital learning expansion</li>
+                                    <li>Mid-Day Meal coverage</li>
+                                </ul>
+                            </div>
+                            <div class="challenge-box">
+                                <h4>Challenges:</h4>
+                                <ul>
+                                    <li>Rural dropout rates</li>
+                                    <li>Gender disparity</li>
+                                    <li>Digital divide</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Equity Section -->
+                    <div class="initiative-card" data-aos="fade-up">
+                        <h3><i class="fas fa-balance-scale"></i> Social Equity & Justice</h3>
+                        <div class="metric-grid">
+                            <div class="metric-card">
+                                <div class="number">100+M</div>
+                                <div class="label">Beneficiaries of MGNREGA</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="number">500M+</div>
+                                <div class="label">Jan Dhan Accounts</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Urban Planning Section -->
+                    <div class="initiative-card" data-aos="fade-up">
+                        <h3><i class="fas fa-city"></i> Sustainable Urban Planning</h3>
+                        <div class="success-stories">
+                            <div class="story-card">
+                                <h4>Smart Cities Mission</h4>
+                                <p>100 cities selected for sustainable development</p>
+                            </div>
+                            <div class="story-card">
+                                <h4>AMRUT</h4>
+                                <p>Urban transformation in 500 cities</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Healthcare Section -->
+                    <div class="initiative-card" data-aos="fade-up">
+                        <h3><i class="fas fa-heartbeat"></i> Health & Well-being</h3>
+                        <div class="health-metrics">
+                            <div class="metric-card">
+                                <div class="number">500M+</div>
+                                <div class="label">Ayushman Bharat Beneficiaries</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gender Equality Section -->
+                    <div class="initiative-card" data-aos="fade-up">
+                        <h3><i class="fas fa-venus"></i> Gender Equality</h3>
+                        <div class="gender-initiatives">
+                            <ul class="key-targets">
+                                <li>Beti Bachao Beti Padhao</li>
+                                <li>Ujjwala Yojana</li>
+                                <li>POSHAN Abhiyan</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Economic and Environmental tabs -->
+        <!-- ... existing code ... -->
+
+        <section class="sdg-action">
+            <h2>Take Action for SDGs in India</h2>
+            <div class="action-grid">
+                <div class="action-card" data-aos="zoom-in">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Support Local Initiatives</h3>
+                    <p>Join community-driven SDG projects</p>
+                    <a href="#" class="action-link">Find Projects</a>
+                </div>
+                <div class="action-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Track Progress</h3>
+                    <p>Monitor India's SDG achievements</p>
+                    <a href="#" class="action-link">View Dashboard</a>
+                </div>
+                <div class="action-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Spread Awareness</h3>
+                    <p>Share SDG success stories</p>
+                    <a href="#" class="action-link">Get Resources</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About SDGs</h3>
+                <p>The Sustainable Development Goals are the blueprint to achieve a better and more sustainable future for all.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">SDG Reports</a></li>
+                    <li><a href="#">Implementation Guide</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sustainable Future. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/sdg-charts.js"></script>
+    <script src="js/sdg-tracker.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true
+        });
+
+        // Wait for document ready
+        $(document).ready(function() {
+            // Tab functionality
+            $('.tab-content').hide();
+            $('#overview-tab').show();
+
+            $('.tab-button').click(function() {
+                $('.tab-button').removeClass('active');
+                $(this).addClass('active');
+
+                const tabId = $(this).attr('data-tab');
+                $('.tab-content').hide();
+                $('#' + tabId + '-tab').fadeIn(400);
+
+                // Refresh AOS when changing tabs
+                setTimeout(function() {
+                    AOS.refresh();
+                }, 500);
+            });
+
+            // Initialize progress bars
+            $('.progress-bar').each(function() {
+                const progress = $(this).attr('data-progress') || $(this).css('--progress').replace('%', '');
+                $(this).css('--progress', progress + '%');
+            });
+
+            // Initialize smooth scrolling
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                const target = $(this.getAttribute('href'));
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

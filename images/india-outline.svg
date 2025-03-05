@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+    <title>India Map Outline</title>
+    <style>
+        .outline {
+            fill: none;
+            stroke: #3498db;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .dark-mode .outline {
+            stroke: #5dade2;
+        }
+    </style>
+    <!-- Simplified India outline path - just a placeholder representation -->
+    <path class="outline" d="M250,50 C300,60 350,80 380,120 C410,160 430,200 440,250 C450,300 430,350 400,390 C370,430 330,450 290,470 C250,490 200,480 160,460 C120,440 90,410 70,370 C50,330 40,290 50,240 C60,190 80,150 110,120 C140,90 180,70 220,60 C230,55 240,52 250,50 Z"/>
+</svg> 

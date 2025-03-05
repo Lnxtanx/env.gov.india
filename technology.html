@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology - Sustainable Innovation</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .tech-hero {
+            background: linear-gradient(135deg, #2C3E50 0%, #3498DB 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-header {
+            padding: 1.5rem;
+            background: #3498DB;
+            color: white;
+        }
+
+        .tech-header i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-content {
+            padding: 1.5rem;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .tech-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .tech-list li:last-child {
+            border: none;
+        }
+
+        .tech-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat .value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #3498DB;
+            display: block;
+        }
+
+        .stat .label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .innovation-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .innovation-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .innovation-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .innovation-item h3 {
+            padding: 1.5rem 1.5rem 0.5rem;
+            margin: 0;
+        }
+
+        .innovation-item p {
+            padding: 0 1.5rem 1.5rem;
+            margin: 0;
+            color: #666;
+        }
+
+        .learn-more {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            margin: 0 1.5rem 1.5rem;
+            color: #3498DB;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .learn-more:hover {
+            color: #2980B9;
+        }
+
+        .calculator-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-form {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .input-group label {
+            font-weight: 600;
+        }
+
+        .input-group select,
+        .input-group input {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        #calculate-impact {
+            background: #3498DB;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        #calculate-impact:hover {
+            background: #2980B9;
+        }
+
+        .calculator-result {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* Dark mode styles */
+        .dark-mode .tech-card,
+        .dark-mode .innovation-item,
+        .dark-mode .calculator-container {
+            background: #2a2a35;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .tech-list li {
+            border-color: #3a3a45;
+        }
+
+        .dark-mode .stat .label {
+            color: #ccc;
+        }
+
+        .dark-mode .innovation-item p {
+            color: #ccc;
+        }
+
+        .dark-mode .input-group select,
+        .dark-mode .input-group input {
+            background: #2a2a35;
+            border-color: #3a3a45;
+            color: #f0f0f0;
+        }
+
+        @media (max-width: 768px) {
+            .tech-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tech-categories,
+            .innovation-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">🌍 Sustainable Future</a>
+            </div>
+            <div class="nav-links">
+                <a href="environmental.html">Environmental 🌱</a>
+                <a href="economic.html">Economic 💰</a>
+                <a href="social.html">Social 👥</a>
+                <a href="sdg.html">SDGs 🎯</a>
+                <a href="technology.html" class="active">Technology 🚀</a>
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle" title="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="notifications" title="Enable notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero tech-hero animate__animated animate__fadeIn">
+            <h1 class="animate__animated animate__slideInDown">Sustainable Technology & Innovation</h1>
+            <p class="animate__animated animate__slideInUp animate__delay-1s">Driving sustainability through technological advancement</p>
+        </section>
+
+        <section class="tech-overview">
+            <h2>Innovation Trends</h2>
+            <div class="interactive-chart">
+                <canvas id="techTrendsChart"></canvas>
+            </div>
+        </section>
+
+        <section class="tech-categories">
+            <!-- Clean Energy Technology -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <i class="fas fa-solar-panel"></i>
+                    <h3>Clean Energy</h3>
+                </div>
+                <div class="tech-content">
+                    <ul class="tech-list">
+                        <li>Solar Technology</li>
+                        <li>Wind Power Systems</li>
+                        <li>Energy Storage Solutions</li>
+                        <li>Smart Grid Technology</li>
+                    </ul>
+                    <div class="tech-stats">
+                        <div class="stat">
+                            <span class="value">45%</span>
+                            <span class="label">Market Growth</span>
+                        </div>
+                        <div class="stat">
+                            <span class="value">2.5M</span>
+                            <span class="label">Jobs Created</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smart Cities -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <i class="fas fa-city"></i>
+                    <h3>Smart Cities</h3>
+                </div>
+                <div class="tech-content">
+                    <ul class="tech-list">
+                        <li>IoT Infrastructure</li>
+                        <li>Smart Transportation</li>
+                        <li>Waste Management Systems</li>
+                        <li>Energy Efficient Buildings</li>
+                    </ul>
+                    <div class="tech-stats">
+                        <div class="stat">
+                            <span class="value">60%</span>
+                            <span class="label">Efficiency Gain</span>
+                        </div>
+                        <div class="stat">
+                            <span class="value">150+</span>
+                            <span class="label">Cities Adopting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agricultural Tech -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <i class="fas fa-seedling"></i>
+                    <h3>AgriTech</h3>
+                </div>
+                <div class="tech-content">
+                    <ul class="tech-list">
+                        <li>Precision Farming</li>
+                        <li>Vertical Agriculture</li>
+                        <li>Smart Irrigation</li>
+                        <li>Crop Monitoring Systems</li>
+                    </ul>
+                    <div class="tech-stats">
+                        <div class="stat">
+                            <span class="value">35%</span>
+                            <span class="label">Water Saved</span>
+                        </div>
+                        <div class="stat">
+                            <span class="value">40%</span>
+                            <span class="label">Yield Increase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Waste Management -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Waste Management</h3>
+                </div>
+                <div class="tech-content">
+                    <ul class="tech-list">
+                        <li>Smart Recycling Systems</li>
+                        <li>Waste-to-Energy Tech</li>
+                        <li>Biodegradable Materials</li>
+                        <li>Ocean Cleanup Solutions</li>
+                    </ul>
+                    <div class="tech-stats">
+                        <div class="stat">
+                            <span class="value">70%</span>
+                            <span class="label">Recycling Rate</span>
+                        </div>
+                        <div class="stat">
+                            <span class="value">50M</span>
+                            <span class="label">Tons Processed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="innovation-showcase">
+            <h2>Latest Innovations</h2>
+            <div class="innovation-grid">
+                <div class="innovation-item" data-aos="fade-up">
+                    <div class="innovation-image" style="background: linear-gradient(135deg, #3498DB 0%, #2C3E50 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-brain" style="font-size: 4rem; color: white;"></i>
+                    </div>
+                    <h3>AI for Sustainability</h3>
+                    <p>Machine learning algorithms optimizing resource usage and predicting environmental changes</p>
+                    <a href="#" class="learn-more">Learn More →</a>
+                </div>
+                <div class="innovation-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="innovation-image" style="background: linear-gradient(135deg, #2C3E50 0%, #3498DB 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-link" style="font-size: 4rem; color: white;"></i>
+                    </div>
+                    <h3>Blockchain for Transparency</h3>
+                    <p>Tracking sustainable supply chains and verifying environmental claims</p>
+                    <a href="#" class="learn-more">Learn More →</a>
+                </div>
+                <div class="innovation-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="innovation-image" style="background: linear-gradient(135deg, #3498DB 0%, #2C3E50 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-atom" style="font-size: 4rem; color: white;"></i>
+                    </div>
+                    <h3>Carbon Capture Tech</h3>
+                    <p>Next-generation solutions for capturing and converting atmospheric CO2</p>
+                    <a href="#" class="learn-more">Learn More →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-adoption">
+            <h2>Technology Adoption Calculator</h2>
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="input-group">
+                        <label for="tech-type">Technology Type</label>
+                        <select id="tech-type">
+                            <option value="solar">Solar Energy</option>
+                            <option value="smart">Smart City Solutions</option>
+                            <option value="agri">Agricultural Tech</option>
+                            <option value="waste">Waste Management</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="implementation-scale">Implementation Scale</label>
+                        <select id="implementation-scale">
+                            <option value="small">Small Scale</option>
+                            <option value="medium">Medium Scale</option>
+                            <option value="large">Large Scale</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="budget">Available Budget ($)</label>
+                        <input type="number" id="budget" placeholder="Enter budget">
+                    </div>
+                    <button type="button" id="calculate-impact">Calculate Impact</button>
+                </div>
+                <div class="calculator-result">
+                    <h3>Projected Impact</h3>
+                    <div id="impact-metrics"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Tech</h3>
+                <p>Exploring and implementing sustainable technology solutions for a better future.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Tech Reports</a></li>
+                    <li><a href="#">Implementation Guides</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sustainable Future. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true
+        });
+
+        // Tech Impact Calculator
+        $(document).ready(function() {
+            $('#calculate-impact').click(function() {
+                const techType = $('#tech-type').val();
+                const scale = $('#implementation-scale').val();
+                const budget = parseFloat($('#budget').val());
+
+                if (!budget || budget <= 0) {
+                    alert('Please enter a valid budget amount');
+                    return;
+                }
+
+                let impact = calculateTechImpact(techType, scale, budget);
+                displayImpact(impact);
+            });
+
+            function calculateTechImpact(type, scale, budget) {
+                const baseMultipliers = {
+                    solar: { co2: 0.5, cost: 0.8, efficiency: 1.2 },
+                    smart: { co2: 0.3, cost: 1.2, efficiency: 1.5 },
+                    agri: { co2: 0.4, cost: 0.9, efficiency: 1.3 },
+                    waste: { co2: 0.6, cost: 0.7, efficiency: 1.1 }
+                };
+
+                const scaleMultiplier = {
+                    small: 1,
+                    medium: 1.5,
+                    large: 2.5
+                };
+
+                const multiplier = baseMultipliers[type];
+                const scaleFactor = scaleMultiplier[scale];
+
+                return {
+                    co2Reduction: (budget * multiplier.co2 * scaleFactor).toFixed(1),
+                    costSavings: (budget * multiplier.cost * scaleFactor).toFixed(2),
+                    efficiencyGain: (multiplier.efficiency * scaleFactor * 100).toFixed(1)
+                };
+            }
+
+            function displayImpact(impact) {
+                const html = `
+                    <div class="impact-metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div class="metric" style="text-align: center; padding: 1rem; background: rgba(52, 152, 219, 0.1); border-radius: 10px;">
+                            <i class="fas fa-leaf" style="font-size: 2rem; color: #3498DB; margin-bottom: 0.5rem;"></i>
+                            <h4>CO2 Reduction</h4>
+                            <p>${impact.co2Reduction} tons/year</p>
+                        </div>
+                        <div class="metric" style="text-align: center; padding: 1rem; background: rgba(52, 152, 219, 0.1); border-radius: 10px;">
+                            <i class="fas fa-dollar-sign" style="font-size: 2rem; color: #3498DB; margin-bottom: 0.5rem;"></i>
+                            <h4>Cost Savings</h4>
+                            <p>$${impact.costSavings}K/year</p>
+                        </div>
+                        <div class="metric" style="text-align: center; padding: 1rem; background: rgba(52, 152, 219, 0.1); border-radius: 10px;">
+                            <i class="fas fa-chart-line" style="font-size: 2rem; color: #3498DB; margin-bottom: 0.5rem;"></i>
+                            <h4>Efficiency Gain</h4>
+                            <p>${impact.efficiencyGain}%</p>
+                        </div>
+                    </div>
+                `;
+                $('#impact-metrics').html(html);
+            }
+        });
+    </script>
+</body>
+</html> 

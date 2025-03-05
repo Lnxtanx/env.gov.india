@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Sustainability</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Load Chart.js before our scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"></script>
+</head>
+<body class="light-mode">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">🌍 Sustainable Future</a>
+            </div>
+            <div class="nav-links">
+                <a href="environmental.html" class="active">Environmental 🌱</a>
+                <a href="economic.html">Economic 💰</a>
+                <a href="social.html">Social 👥</a>
+                <a href="sdg.html">SDGs 🎯</a>
+                <a href="technology.html">Technology 🚀</a>
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle" title="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="notifications" title="Enable notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero environmental-hero">
+            <h1 class="animate-on-scroll animate-zoom-in">Environmental Sustainability</h1>
+            <p class="animate-on-scroll animate-fade-in-up delay-200">Protecting our planet for future generations</p>
+            <div class="hero-stats">
+                <div class="stat-item animate-on-scroll animate-fade-in-up delay-300">
+                    <span class="counter">1.5°C</span>
+                    <p>Global Warming Target</p>
+                </div>
+                <div class="stat-item animate-on-scroll animate-fade-in-up delay-400">
+                    <span class="counter">50%</span>
+                    <p>Emission Reduction Goal</p>
+                </div>
+                <div class="stat-item animate-on-scroll animate-fade-in-up delay-500">
+                    <span class="counter">2050</span>
+                    <p>Net Zero Target</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- India's Environmental Landscape Section -->
+        <section id="india-environment" class="content-section india-environment">
+            <h2><i class="fas fa-map-marker-alt"></i> India's Environmental Landscape</h2>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>India's Climate Challenges</h3>
+                    <div class="interactive-chart">
+                        <canvas id="indiaEmissionsChart" height="300"></canvas>
+                    </div>
+                    <ul class="info-list">
+                        <li>India is the world's 3rd largest carbon emitter, yet has among the lowest per capita emissions</li>
+                        <li>Extreme heat waves affecting over 200 million people annually</li>
+                        <li>Monsoon patterns shifting, with 30% increase in extreme rainfall events</li>
+                        <li>Himalayan glaciers receding at alarming rates, threatening water security</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Air Quality Crisis</h3>
+                    <ul class="impact-list">
+                        <li>21 of the world's 30 most polluted cities are in India</li>
+                        <li>Air pollution causes 1.67 million premature deaths annually</li>
+                        <li>Delhi's air quality regularly reaches "hazardous" levels during winter</li>
+                        <li>National Clean Air Programme aims to reduce particulate pollution by 20-30% by 2024</li>
+                        <li>Stubble burning in northern states contributes to 40% of Delhi's winter pollution</li>
+                        <li>Vehicle emissions account for 40-80% of urban air pollution in major Indian cities</li>
+                        <li>Indoor air pollution affects 800 million Indians using solid fuels for cooking</li>
+                        <li>Economic cost of air pollution estimated at 3% of India's GDP ($150 billion annually)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Water Challenges & Solutions</h3>
+                    <ul class="info-list">
+                        <li><strong>Water Stress:</strong> 600 million Indians face high to extreme water stress</li>
+                        <li><strong>Groundwater Depletion:</strong> India extracts more groundwater than USA and China combined</li>
+                        <li><strong>River Pollution:</strong> Only 31% of sewage is treated before entering waterways</li>
+                        <li><strong>Jal Shakti Abhiyan:</strong> National water conservation campaign targeting 256 water-stressed districts</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Renewable Energy Leadership</h3>
+                    <ul class="info-list">
+                        <li><strong>Solar Capacity:</strong> 4th largest solar power capacity globally with 54 GW installed</li>
+                        <li><strong>Ambitious Targets:</strong> 500 GW non-fossil fuel capacity by 2030</li>
+                        <li><strong>International Solar Alliance:</strong> India-led coalition of 121 countries promoting solar energy</li>
+                        <li><strong>Green Hydrogen Mission:</strong> ₹19,744 crore ($2.3 billion) initiative to become global hub</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Climate Change & Global Warming -->
+        <section id="climate-change" class="content-section climate-change">
+            <h2><i class="fas fa-temperature-high"></i> Climate Change & Global Warming</h2>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Causes of Climate Change</h3>
+                    <div class="interactive-chart">
+                        <canvas id="emissionsChart" height="300"></canvas>
+                    </div>
+                    <ul class="info-list">
+                        <li>Greenhouse gas emissions from industrial activities</li>
+                        <li>Deforestation and land-use changes</li>
+                        <li>Agricultural practices and livestock farming</li>
+                        <li>Transportation and fossil fuel consumption</li>
+                    </ul>
+                    <p>Human activities have increased greenhouse gas concentrations in the atmosphere, with CO2 levels rising from 280 ppm in pre-industrial times to over 410 ppm today, intensifying the natural greenhouse effect.</p>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Global Impact</h3>
+                    <div class="impact-visualization">
+                        <div class="temperature-gauge animate-gauge">
+                            <div class="gauge-fill"></div>
+                            <span class="gauge-label">Global Temperature Rise</span>
+                        </div>
+                    </div>
+                    <ul class="impact-list">
+                        <li>Rising sea levels: Could displace 280 million people by 2100</li>
+                        <li>Extreme weather: Hurricanes, floods, and droughts increasing in frequency</li>
+                        <li>Species extinction: 1 million species at risk</li>
+                        <li>Food insecurity: Crop yields decreasing by 2-6% each decade</li>
+                        <li>Ocean acidification: 30% increase since pre-industrial times, threatening marine ecosystems</li>
+                        <li>Permafrost thaw: Releasing methane and accelerating warming in a dangerous feedback loop</li>
+                        <li>Climate migration: 143 million people could be displaced by 2050</li>
+                        <li>Disease spread: Expanding ranges for vector-borne diseases like malaria and dengue</li>
+                        <li>Economic impact: Global GDP could decrease by 18% by 2050 without mitigation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Greenhouse Gases & Their Impact</h3>
+                    <ul class="info-list">
+                        <li><strong>Carbon Dioxide (CO2):</strong> From burning fossil fuels, stays in the atmosphere for 300-1000 years</li>
+                        <li><strong>Methane (CH4):</strong> 28 times more potent than CO2, comes from livestock and natural gas</li>
+                        <li><strong>Nitrous Oxide (N2O):</strong> 300 times more potent than CO2, primarily from agriculture</li>
+                        <li><strong>F-gases:</strong> Industrial gases with global warming potential thousands of times greater than CO2</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Global Initiatives</h3>
+                    <ul class="info-list">
+                        <li><strong>Paris Agreement:</strong> Global pact to limit warming to well below 2°C</li>
+                        <li><strong>Carbon Pricing:</strong> 64 carbon pricing initiatives implemented globally</li>
+                        <li><strong>Renewable Targets:</strong> 166 countries have adopted renewable energy targets</li>
+                        <li><strong>Climate Finance:</strong> $100 billion annually pledged to developing nations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Temperature Chart Section -->
+        <section class="content-section temperature-trends">
+            <h2><i class="fas fa-chart-line"></i> Temperature Trends</h2>
+            <div class="interactive-chart">
+                <canvas id="temperatureChart" height="300"></canvas>
+            </div>
+            <p class="chart-description">
+                This chart shows the global temperature anomalies over time, indicating the progressive warming of our planet. The rate of warming has accelerated since the 1970s, with the last decade containing the warmest years on record.
+            </p>
+        </section>
+
+        <!-- Section 2: Pollution & Waste Management -->
+        <section id="pollution" class="content-section pollution-waste">
+            <h2><i class="fas fa-trash-alt"></i> Pollution & Waste Management</h2>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Types of Pollution</h3>
+                    <div class="pollution-types">
+                        <div class="pollution-type animate-on-scroll animate-fade-in-up delay-100">
+                            <i class="fas fa-smog"></i>
+                            <h4>Air Pollution</h4>
+                            <p>Causes 7 million premature deaths annually worldwide</p>
+                        </div>
+                        <div class="pollution-type animate-on-scroll animate-fade-in-up delay-200">
+                            <i class="fas fa-water"></i>
+                            <h4>Water Pollution</h4>
+                            <p>80% of global wastewater is released untreated</p>
+                        </div>
+                        <div class="pollution-type animate-on-scroll animate-fade-in-up delay-300">
+                            <i class="fas fa-seedling"></i>
+                            <h4>Soil Pollution</h4>
+                            <p>Affects 33% of global soils, threatening food security</p>
+                        </div>
+                        <div class="pollution-type animate-on-scroll animate-fade-in-up delay-400">
+                            <i class="fas fa-volume-up"></i>
+                            <h4>Noise Pollution</h4>
+                            <p>Affects 1 in 5 people globally, causing health issues</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>India's Air Quality Initiatives</h3>
+                    <div class="waste-hierarchy">
+                        <div class="hierarchy-level animate-on-scroll animate-slide-right delay-100">
+                            <h4>National Clean Air Programme</h4>
+                            <p>Targets 20-30% reduction in PM2.5 and PM10 by 2024 in 122 non-attainment cities</p>
+                        </div>
+                        <div class="hierarchy-level animate-on-scroll animate-slide-right delay-200">
+                            <h4>BS-VI Standards</h4>
+                            <p>Leapfrogged from BS-IV to BS-VI emission norms, reducing sulfur content by 80%</p>
+                        </div>
+                        <div class="hierarchy-level animate-on-scroll animate-slide-right delay-300">
+                            <h4>Electric Mobility</h4>
+                            <p>FAME-II scheme provides ₹10,000 crore ($1.2 billion) to promote electric vehicles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>India's Plastic Waste Management</h3>
+                    <ul class="info-list">
+                        <li>India generates 3.5 million tonnes of plastic waste annually</li>
+                        <li>Single-use plastics banned nationwide since July 2022</li>
+                        <li>Extended Producer Responsibility policy makes manufacturers responsible for plastic waste</li>
+                        <li>Project REPLAN converts plastic waste into diesel, with capacity to process 1 tonne daily</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Innovative Waste Solutions</h3>
+                    <ul class="info-list">
+                        <li><strong>Waste-to-Energy:</strong> 88 plants convert 2,700 tonnes of waste to energy daily</li>
+                        <li><strong>Plastic Roads:</strong> Over 100,000 km of roads built using plastic waste mixed with asphalt</li>
+                        <li><strong>Swachh Bharat Mission:</strong> Built 110+ million toilets, reducing open defecation from 50% to 5%</li>
+                        <li><strong>Circular Economy:</strong> India Plastic Pact targets 100% reusable or recyclable packaging by 2030</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>E-waste Management</h3>
+                    <ul class="info-list">
+                        <li>India generates 3.2 million tonnes of e-waste annually, growing at 30% per year</li>
+                        <li>E-waste Management Rules 2022 mandate 60% collection and recycling targets</li>
+                        <li>Formal recycling sector employs 45,000 people and recovers valuable metals</li>
+                        <li>Digital India E-waste Awareness program has educated 10 million citizens</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Ganga Rejuvenation</h3>
+                    <ul class="info-list">
+                        <li>Namami Gange program has established 177 sewage treatment plants along the river</li>
+                        <li>Water quality improved at 27 locations, with dissolved oxygen levels increasing by 30%</li>
+                        <li>Over 30,000 hectares of Ganga catchment area reforested to reduce siltation</li>
+                        <li>Biodiversity conservation efforts have increased Gangetic dolphin population by 35%</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Noise Pollution in India</h3>
+                    <ul class="info-list">
+                        <li>7 major Indian cities exceed permissible noise levels by 100-150%</li>
+                        <li>Traffic noise in urban areas averages 80-90 dB, well above the safe limit of 55 dB</li>
+                        <li>Noise Pollution Rules (2000) establish zones with specific decibel limits</li>
+                        <li>Festival celebrations often exceed 100 dB despite Supreme Court restrictions</li>
+                        <li>Noise barriers being installed along 56 km of Delhi Metro to reduce impact</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Health Impacts of Noise</h3>
+                    <ul class="info-list">
+                        <li>Hearing impairment affects 6.3% of India's population</li>
+                        <li>Noise-induced stress linked to 15% increase in cardiovascular disease</li>
+                        <li>Children in noisy environments show 20% lower cognitive performance</li>
+                        <li>Sleep disturbance from noise affects 35% of urban residents</li>
+                        <li>Economic cost of noise pollution estimated at ₹28,000 crore annually</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Water Conservation -->
+        <section id="water" class="content-section water-conservation">
+            <div class="container">
+                <h2>Water Conservation & Management</h2>
+                <p class="section-intro">Water resources are under increasing pressure from population growth, urbanization, and climate change.</p>
+                
+                <div class="row mt-4">
+                    <div class="col-lg-6">
+                        <h3>Water Resources in India</h3>
+                        <div class="water-resources info-card">
+                            <ul class="info-list">
+                                <li><span class="stat-highlight">4%</span> of global water resources with <span class="stat-highlight">18%</span> of world population</li>
+                                <li><span class="stat-highlight">20</span> major river basins</li>
+                                <li><span class="stat-highlight">11</span> million hectares of wetlands</li>
+                                <li>Groundwater supplies <span class="stat-highlight">80%</span> of domestic water in rural areas</li>
+                                <li>Per capita water availability reduced by <span class="stat-highlight">70%</span> since independence</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>Rainwater Harvesting</h3>
+                        <div class="rainwater-system">
+                            <!-- Rainwater harvesting visualization -->
+                            <div class="house-roof"></div>
+                            <div class="rain-cloud">
+                                <!-- Raindrops will be added dynamically by JavaScript -->
+                            </div>
+                            <div class="collection-tank"></div>
+                        </div>
+                        <div class="rainwater-benefits mt-3">
+                            <p>Harvesting just <span class="stat-highlight">100 mm</span> of rainfall can provide <span class="stat-highlight">10,000</span> liters of water per 100 sq.m roof area</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conservation-methods mt-4">
+                    <h3>Traditional Water Conservation Methods</h3>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="method-card animate-on-scroll">
+                                <h4>Stepwells (Baolis)</h4>
+                                <p>Ancient structures for groundwater access in arid regions</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="method-card animate-on-scroll">
+                                <h4>Johads</h4>
+                                <p>Community-owned rainwater storage tanks in Rajasthan</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="method-card animate-on-scroll">
+                                <h4>Bamboo Drip Irrigation</h4>
+                                <p>Traditional system in Northeast for efficient water distribution</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="method-card animate-on-scroll">
+                                <h4>Ahar-Pynes</h4>
+                                <p>Traditional floodwater harvesting system in Bihar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Natural Disasters & Environmental Resilience Section -->
+        <section id="disasters" class="content-section natural-disasters">
+            <div class="leafy-background"></div>
+            <div class="vine-decoration vine-left"></div>
+            <div class="vine-decoration vine-right"></div>
+            <div class="container">
+                <h2>Natural Disasters & Environmental Resilience</h2>
+                <p class="section-intro">Natural disasters are becoming more frequent and intense due to climate change. Understanding these events and building resilience is critical for environmental sustainability.</p>
+                
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="info-card">
+                            <div class="disaster-icon earthquake-icon">
+                                <i class="fas fa-house-damage"></i>
+                            </div>
+                            <h4>Earthquakes & Tsunamis</h4>
+                            <ul class="info-list">
+                                <li>India experiences <span class="stat-highlight">~500 earthquakes</span> annually</li>
+                                <li>The Himalayas are most susceptible to high-magnitude quakes</li>
+                                <li>The 2004 tsunami affected <span class="stat-highlight">2.2 million people</span> across South Asia</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="info-card">
+                            <div class="disaster-icon flood-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <h4>Floods & Droughts</h4>
+                            <ul class="info-list">
+                                <li><span class="stat-highlight">12%</span> of India's land is prone to flooding</li>
+                                <li>Monsoon floods affect <span class="stat-highlight">40 million</span> people annually</li>
+                                <li>Drought conditions impact <span class="stat-highlight">68%</span> of India's cultivable land</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="info-card">
+                            <div class="disaster-icon fire-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h4>Wildfires & Climate</h4>
+                            <ul class="info-list">
+                                <li>Forest fires destroy <span class="stat-highlight">3.73 million hectares</span> annually</li>
+                                <li>Wildfires have increased by <span class="stat-highlight">40%</span> in the last decade</li>
+                                <li>Heat waves cause <span class="stat-highlight">500+</span> deaths yearly</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="info-card">
+                            <div class="disaster-icon preparation-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4>Disaster Preparedness</h4>
+                            <ul class="info-list">
+                                <li>National Disaster Response Force has <span class="stat-highlight">12 battalions</span></li>
+                                <li>Early warning systems have reduced casualties by <span class="stat-highlight">80%</span></li>
+                                <li>Disaster management budget increased to <span class="stat-highlight">₹28,000 crores</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add disaster impact visualization before Building Environmental Resilience -->
+                <div class="disaster-impact-visualization mb-5">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="info-card disaster-data-card">
+                                <h3><i class="fas fa-chart-bar"></i> Disaster Impact Trends</h3>
+                                <p>Climate change is intensifying natural disasters across India, affecting millions of lives and causing significant economic damage annually.</p>
+                                <div class="disaster-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-value counter">14%</span>
+                                        <p>Increase in extreme weather events in the last decade</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value counter">₹75,000 Cr</span>
+                                        <p>Annual economic loss from natural disasters</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value counter">27M</span>
+                                        <p>People displaced by disasters in the past 5 years</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="info-card disaster-map-card">
+                                <h3><i class="fas fa-map-marked-alt"></i> India's Disaster Vulnerability Map</h3>
+                                <div class="india-disaster-map">
+                                    <div class="map-overlay">
+                                        <div class="region himalayas" data-region="Himalayas">
+                                            <span class="region-name">Himalayas</span>
+                                            <div class="region-info">
+                                                <span>Risk: Landslides, Earthquakes, Floods</span>
+                                            </div>
+                                        </div>
+                                        <div class="region indo-gangetic" data-region="Indo-Gangetic Plains">
+                                            <span class="region-name">Indo-Gangetic Plains</span>
+                                            <div class="region-info">
+                                                <span>Risk: Floods, Droughts</span>
+                                            </div>
+                                        </div>
+                                        <div class="region coastal" data-region="Coastal Regions">
+                                            <span class="region-name">Coastal Regions</span>
+                                            <div class="region-info">
+                                                <span>Risk: Cyclones, Sea Level Rise, Erosion</span>
+                                            </div>
+                                        </div>
+                                        <div class="region central" data-region="Central India">
+                                            <span class="region-name">Central India</span>
+                                            <div class="region-info">
+                                                <span>Risk: Heat Waves, Droughts, Wildfires</span>
+                                            </div>
+                                        </div>
+                                        <div class="region western" data-region="Western India">
+                                            <span class="region-name">Western India</span>
+                                            <div class="region-info">
+                                                <span>Risk: Droughts, Dust Storms</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="map-note">Hover over regions to see primary disaster risks (interactive on desktop)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="impact-section">
+                    <h3>Building Environmental Resilience</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Climate Adaptation Strategies</h5>
+                            <ul class="impact-list">
+                                <li>Developing drought-resistant crops</li>
+                                <li>Constructing climate-resilient infrastructure</li>
+                                <li>Implementing coastal zone management plans</li>
+                                <li>Creating urban heat island mitigation strategies</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Community-Based Initiatives</h5>
+                            <ul class="impact-list">
+                                <li>Training local disaster response teams</li>
+                                <li>Establishing early warning communication networks</li>
+                                <li>Developing community evacuation plans</li>
+                                <li>Incorporating traditional knowledge in resilience strategies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special elements for between Natural Disasters and Renewable Energy -->
+        <div class="ecosystem-bridge">
+            <div class="nature-divider">
+                <div class="ecosystem-info">
+                    <h3>Ecosystem Balance</h3>
+                    <p>Nature's resilience depends on maintaining balanced ecosystems.</p>
+                </div>
+                <!-- Leaf decorations removed to save space -->
+            </div>
+        </div>
+
+        <!-- Green divider with nature icons - directly connected to sustainable agriculture -->
+        <div class="green-divider">
+            <i class="fas fa-seedling nature-icon" style="top: 30%; left: 15%;"></i>
+            <i class="fas fa-tree nature-icon" style="top: 10%; left: 35%;"></i>
+            <i class="fas fa-leaf nature-icon" style="top: 50%; left: 55%;"></i>
+            <i class="fas fa-pagelines nature-icon" style="top: 20%; left: 75%;"></i>
+            <i class="fas fa-spa nature-icon" style="top: 40%; left: 90%;"></i>
+        </div>
+
+        <!-- Section 7: Sustainable Agriculture -->
+        <section id="agriculture" class="content-section sustainable-agriculture">
+            <div class="leafy-background"></div>
+            <div class="vine-decoration vine-left"></div>
+            <div class="vine-decoration vine-right"></div>
+            <h2><i class="fas fa-seedling"></i> Sustainable Agriculture & Organic Farming</h2>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Permaculture & Regenerative Farming</h3>
+                    <ul class="info-list">
+                        <li>Regenerative agriculture can sequester 9.7 tons of CO2 per acre annually</li>
+                        <li>No-till farming reduces soil erosion by 90% while increasing carbon storage</li>
+                        <li>Cover crops improve soil health and reduce fertilizer needs by up to 53%</li>
+                        <li>Agroforestry systems produce 40% more income for farmers while supporting biodiversity</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>India's Agricultural Heritage</h3>
+                    <ul class="info-list">
+                        <li><strong>Natural Farming:</strong> Andhra Pradesh's Zero-Budget Natural Farming program covers 700,000+ farmers</li>
+                        <li><strong>Crop Diversity:</strong> India cultivates 377 crop species and 25,000 varieties, preserving agricultural biodiversity</li>
+                        <li><strong>Traditional Knowledge:</strong> Vrikshayurveda (tree science) contains ancient sustainable farming practices</li>
+                        <li><strong>Indigenous Seeds:</strong> Over 4,000 indigenous rice varieties adapted to local conditions are preserved</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>India's Agricultural Challenges</h3>
+                    <ul class="info-list">
+                        <li><strong>Water Efficiency:</strong> Indian agriculture uses 80% of freshwater but has only 40% water use efficiency</li>
+                        <li><strong>Soil Health:</strong> 30% of India's agricultural land is degraded due to excessive chemical use</li>
+                        <li><strong>Climate Vulnerability:</strong> 68% of India's cultivated area is drought-prone, affecting 50% of farmers</li>
+                        <li><strong>Small Holdings:</strong> 86% of farmers have less than 2 hectares, making technology adoption challenging</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Sustainable Solutions</h3>
+                    <ul class="info-list">
+                        <li><strong>Micro-irrigation:</strong> Precision irrigation can reduce water use by 70% while increasing yields by 50%</li>
+                        <li><strong>Digital Agriculture:</strong> Soil health cards and satellite monitoring optimize resource use for 145 million farmers</li>
+                        <li><strong>Organic Farming:</strong> India ranks 1st in Asia with 2.8 million hectares under organic cultivation</li>
+                        <li><strong>Agroforestry:</strong> National Agroforestry Policy promotes tree integration on farms, benefiting 25 million hectares</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Green divider with wave pattern -->
+        <div class="green-divider">
+            <i class="fas fa-water nature-icon" style="top: 30%; left: 10%;"></i>
+            <i class="fas fa-fish nature-icon" style="top: 20%; left: 30%;"></i>
+            <i class="fas fa-water nature-icon" style="top: 50%; left: 50%;"></i>
+            <i class="fas fa-fish nature-icon" style="top: 30%; left: 70%;"></i>
+            <i class="fas fa-water nature-icon" style="top: 40%; left: 90%;"></i>
+        </div>
+
+        <!-- Section 8: Ocean Conservation -->
+        <section id="oceans" class="content-section ocean-conservation">
+            <div class="leafy-background"></div>
+            <h2><i class="fas fa-water"></i> Ocean Conservation & Marine Life Protection</h2>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Coral Reef Bleaching</h3>
+                    <ul class="info-list">
+                        <li>Coral reefs support 25% of marine species but occupy just 0.1% of the ocean</li>
+                        <li>50% of the world's reefs have died in the last 30 years due to bleaching</li>
+                        <li>A 2°C temperature rise could kill 99% of coral reefs globally</li>
+                        <li>Heat-resistant coral strains and "coral gardening" show promise for reef restoration</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Overfishing & Sustainable Practices</h3>
+                    <ul class="info-list">
+                        <li>34% of fish stocks are harvested at biologically unsustainable levels</li>
+                        <li>Marine Protected Areas show 21% higher biodiversity and 5x fish biomass</li>
+                        <li>Sustainable fishing methods like pole-and-line reduce bycatch by 87%</li>
+                        <li>MSC-certified fisheries now account for 15% of global marine catch</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Great Pacific Garbage Patch</h3>
+                    <ul class="info-list">
+                        <li>This floating waste mass is 3x the size of France and contains 1.8 trillion plastic pieces</li>
+                        <li>Ocean cleanup systems aim to remove 90% of ocean plastic by 2040</li>
+                        <li>The patch grows by an estimated 4,000 tons daily from rivers and ships</li>
+                        <li>Microplastics from the patch have entered marine food chains at all levels</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Deep-Sea Mining Risks</h3>
+                    <ul class="info-list">
+                        <li>Deep-sea mining targets rare metals used in renewable energy technologies</li>
+                        <li>90% of deep-sea species near mining sites are unknown to science</li>
+                        <li>Sediment plumes from mining can spread over 500km, smothering marine life</li>
+                        <li>Recovery of deep-sea ecosystems after disturbance takes decades to centuries</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Green divider with wave pattern -->
+        <div class="green-divider">
+            <i class="fas fa-water nature-icon" style="top: 30%; left: 10%;"></i>
+            <i class="fas fa-fish nature-icon" style="top: 20%; left: 30%;"></i>
+            <i class="fas fa-water nature-icon" style="top: 50%; left: 50%;"></i>
+            <i class="fas fa-fish nature-icon" style="top: 30%; left: 70%;"></i>
+            <i class="fas fa-water nature-icon" style="top: 40%; left: 90%;"></i>
+        </div>
+
+        <!-- Section 9: Green Building -->
+        <section id="buildings" class="content-section green-building">
+            <div class="leafy-background"></div>
+            <h2><i class="fas fa-home"></i> Green Building & Sustainable Architecture</h2>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Eco-Friendly Materials & Smart Homes</h3>
+                    <ul class="info-list">
+                        <li>Bamboo flooring regrows in 5 years vs. 50-100 years for hardwood</li>
+                        <li>Rammed earth construction reduces embodied energy by 60% vs. concrete</li>
+                        <li>Smart homes reduce energy use by 10-15% through automated systems</li>
+                        <li>Recycled steel uses 75% less energy than virgin steel production</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Passive Solar Design</h3>
+                    <ul class="info-list">
+                        <li>Proper orientation can reduce heating/cooling needs by 85%</li>
+                        <li>Thermal mass stores heat during day and releases it at night</li>
+                        <li>Passive House standard reduces energy consumption by up to 90%</li>
+                        <li>Natural ventilation can eliminate air conditioning needs in many climates</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Net-Zero & Carbon-Neutral Buildings</h3>
+                    <ul class="info-list">
+                        <li>Net-zero buildings produce as much energy as they consume</li>
+                        <li>Carbon-neutral construction considers both operational and embodied carbon</li>
+                        <li>Living buildings actually improve their surroundings by generating excess clean energy</li>
+                        <li>Mass timber construction stores carbon and reduces concrete use by 40%</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Vertical Forests & Urban Greening</h3>
+                    <ul class="info-list">
+                        <li>Milan's Bosco Verticale hosts 900 trees, equivalent to 2 acres of forest</li>
+                        <li>Building-integrated vegetation reduces cooling costs by 15-35%</li>
+                        <li>Living walls improve indoor air quality by removing VOCs and CO2</li>
+                        <li>Urban forests reduce city temperatures by 2-8°C and absorb stormwater</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nature-themed divider -->
+        <div class="nature-divider">
+            <i class="fas fa-mountain leaf-decoration" style="top: 40%; left: 15%; font-size: 22px; color: rgba(46, 204, 113, 0.3);"></i>
+            <i class="fas fa-cloud leaf-decoration" style="top: 20%; left: 35%; font-size: 20px; color: rgba(52, 152, 219, 0.25);"></i>
+            <i class="fas fa-sun leaf-decoration" style="top: 50%; left: 55%; font-size: 24px; color: rgba(241, 196, 15, 0.3);"></i>
+            <i class="fas fa-globe-americas leaf-decoration" style="top: 30%; left: 75%; font-size: 26px; color: rgba(52, 152, 219, 0.25);"></i>
+        </div>
+
+        <!-- Section 10: Individual Role -->
+        <section id="individual-role" class="content-section individual-role">
+            <div class="leafy-background"></div>
+            <h2><i class="fas fa-user"></i> The Role of Individuals in Environmental Sustainability</h2>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Reducing Carbon Footprint</h3>
+                    <ul class="info-list">
+                        <li>Switching to a plant-based diet can reduce food carbon footprint by 73%</li>
+                        <li>Using public transportation over driving reduces emissions by 67% per passenger mile</li>
+                        <li>Energy-efficient appliances reduce household carbon emissions by 10-40%</li>
+                        <li>Reducing food waste could eliminate 8% of global greenhouse gas emissions</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Indian Environmental Movements</h3>
+                    <ul class="info-list">
+                        <li><strong>Chipko Movement:</strong> Forest conservation movement where villagers hugged trees to prevent logging</li>
+                        <li><strong>Narmada Bachao Andolan:</strong> Campaign to protect communities and ecosystems affected by dam projects</li>
+                        <li><strong>Bishnoi Community:</strong> For over 500 years, has protected trees and wildlife as part of religious practice</li>
+                        <li><strong>Save Silent Valley:</strong> Successful grassroots movement that protected a rainforest from hydroelectric project</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="info-card animate-on-scroll">
+                    <h3>Citizen Initiatives in India</h3>
+                    <ul class="info-list">
+                        <li><strong>Miyawaki Forests:</strong> Urban micro-forests planted by citizens in 200+ locations across India</li>
+                        <li><strong>Beach Cleanups:</strong> Versova Beach cleanup in Mumbai removed 5.3 million kg of plastic</li>
+                        <li><strong>Cycle2Work:</strong> Movement in major cities reducing 15 tonnes of CO2 emissions daily</li>
+                        <li><strong>Terrace Gardening:</strong> 10,000+ households in Bengaluru grow food, reducing food miles and waste</li>
+                    </ul>
+                </div>
+                <div class="info-card animate-on-scroll">
+                    <h3>Youth Environmental Leadership</h3>
+                    <ul class="info-list">
+                        <li><strong>Fridays For Future India:</strong> Student-led movement with chapters in 40+ cities</li>
+                        <li><strong>Green Schools Program:</strong> 15,000+ schools implementing environmental audits and action plans</li>
+                        <li><strong>Eco Clubs:</strong> 100,000+ schools have environmental clubs under National Green Corps</li>
+                        <li><strong>Youth Climate Leaders:</strong> Network of 5,000+ young Indians developing climate solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Take Action Section -->
+        <section class="take-action">
+            <h2>Take Action Today in India</h2>
+            <div class="action-grid">
+                <div class="action-card animate-on-scroll pulse-on-hover">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Calculate Your Carbon Footprint</h3>
+                    <p>Understand your environmental impact and identify areas for improvement</p>
+                    <a href="#calculator" class="action-button">Start Now</a>
+                </div>
+                <div class="action-card animate-on-scroll pulse-on-hover">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Join Local Conservation Projects</h3>
+                    <p>Connect with NGOs like WWF-India, Sanctuary Nature Foundation, or local Eco-clubs</p>
+                    <a href="#projects" class="action-button">Find Projects</a>
+                </div>
+                <div class="action-card animate-on-scroll pulse-on-hover">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Sustainable Living in India</h3>
+                    <p>Discover practices suited to Indian lifestyles and climate conditions</p>
+                    <a href="#tips" class="action-button">Learn More</a>
+                </div>
+                <div class="action-card animate-on-scroll pulse-on-hover">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Join Tree Plantation Drives</h3>
+                    <p>Participate in initiatives like Van Mahotsav or Cauvery Calling</p>
+                    <a href="#planting" class="action-button">Get Involved</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section animate-on-scroll animate-fade-in-up">
+                <h3>About Environmental Sustainability</h3>
+                <p>Working together to protect and preserve our planet for future generations.</p>
+            </div>
+            <div class="footer-section animate-on-scroll animate-fade-in-up delay-200">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#india-environment">India's Environment</a></li>
+                    <li><a href="#climate-change">Climate Change</a></li>
+                    <li><a href="#pollution">Pollution</a></li>
+                    <li><a href="#water">Water Conservation</a></li>
+                    <li><a href="#energy">Renewable Energy</a></li>
+                    <li><a href="#biodiversity">Biodiversity</a></li>
+                    <li><a href="#disasters">Natural Disasters</a></li>
+                    <li><a href="#agriculture">Sustainable Agriculture</a></li>
+                    <li><a href="#oceans">Ocean Conservation</a></li>
+                    <li><a href="#buildings">Green Building</a></li>
+                    <li><a href="#individual-role">Individual Role</a></li>
+                </ul>
+            </div>
+            <div class="footer-section animate-on-scroll animate-fade-in-up delay-400">
+                <h3>Indian Environmental Organizations</h3>
+                <ul>
+                    <li><a href="https://www.wwfindia.org/" target="_blank">WWF India</a></li>
+                    <li><a href="https://www.sanctuarynaturefoundation.org/" target="_blank">Sanctuary Nature Foundation</a></li>
+                    <li><a href="https://www.teri.res.in/" target="_blank">The Energy and Resources Institute</a></li>
+                    <li><a href="https://www.ceeindia.org/" target="_blank">Centre for Environment Education</a></li>
+                </ul>
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" class="pulse-on-hover"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="pulse-on-hover"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="pulse-on-hover"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="pulse-on-hover"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom animate-on-scroll animate-fade-in-up delay-600">
+            <p>&copy; 2024 Sustainable Future. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/environmental-charts.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html> 

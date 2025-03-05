@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Sustainability - People & Society</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css">
+</head>
+<body class="light-mode">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">🌍 Sustainable Future</a>
+            </div>
+            <div class="nav-links">
+                <a href="environmental.html">Environmental 🌱</a>
+                <a href="economic.html">Economic 💰</a>
+                <a href="social.html" class="active">Social 👥</a>
+                <a href="sdg.html">SDGs 🎯</a>
+                <a href="technology.html">Technology 🚀</a>
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle" title="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="notifications" title="Enable notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero social-hero animate__animated animate__fadeIn">
+            <div class="hero-content">
+                <h1 class="animate__animated animate__slideInDown">People & Society - A Balanced Future</h1>
+                <p class="animate__animated animate__slideInUp animate__delay-1s">Building inclusive, equitable, and thriving communities for generations to come</p>
+                <div class="hero-stats animate__animated animate__fadeIn animate__delay-2s">
+                    <div class="hero-stat">
+                        <span class="stat-number">2030</span>
+                        <span class="stat-desc">SDG target year</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">17</span>
+                        <span class="stat-desc">Sustainability goals</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-desc">Social dimensions</span>
+                    </div>
+                </div>
+            </div>
+            <div class="wave-animation">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#ffffff" fill-opacity="1" d="M0,192L48,186.7C96,181,192,171,288,154.7C384,139,480,117,576,128C672,139,768,181,864,186.7C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="global">Global Perspective</button>
+                <button class="tab-button" data-tab="india">India Focus</button>
+            </div>
+        </div>
+
+        <div class="tab-content" id="global-tab" style="display: block;">
+            <section class="content-grid">
+                <!-- Education & Awareness Section -->
+                <div class="content-card" data-aos="fade-up">
+                    <h2><i class="fas fa-graduation-cap"></i> Education & Awareness</h2>
+                    <div class="interactive-chart" data-aos="zoom-in" data-aos-delay="200">
+                        <canvas id="educationChart"></canvas>
+                    </div>
+                    <div class="education-metrics" data-aos="fade-up" data-aos-delay="300">
+                        <div class="metric-item" data-aos="flip-up" data-aos-delay="400">
+                            <h3>Global Literacy Rate</h3>
+                            <div class="progress-circle" data-value="86">
+                                <span class="progress-text">86%</span>
+                            </div>
+                        </div>
+                        <div class="metric-item" data-aos="flip-up" data-aos-delay="500">
+                            <h3>Sustainability Education</h3>
+                            <div class="progress-circle" data-value="42">
+                                <span class="progress-text">42%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="education-resources" data-aos="fade-up" data-aos-delay="600">
+                        <h3>Learning Resources</h3>
+                        <div class="resource-grid">
+                            <a href="#" class="resource-card" data-aos="zoom-in" data-aos-delay="700">
+                                <i class="fas fa-book"></i>
+                                <span>Online Courses</span>
+                            </a>
+                            <a href="#" class="resource-card" data-aos="zoom-in" data-aos-delay="800">
+                                <i class="fas fa-video"></i>
+                                <span>Video Library</span>
+                            </a>
+                            <a href="#" class="resource-card" data-aos="zoom-in" data-aos-delay="900">
+                                <i class="fas fa-users"></i>
+                                <span>Community Forums</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Equity Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="100">
+                    <h2><i class="fas fa-balance-scale"></i> Social Equity & Justice</h2>
+                    <div class="interactive-chart" data-aos="zoom-in" data-aos-delay="200">
+                        <canvas id="equityChart"></canvas>
+                    </div>
+                    <div class="equity-indicators" data-aos="fade-up" data-aos-delay="300">
+                        <div class="indicator" data-aos="fade-right" data-aos-delay="400">
+                            <h3>Gender Equality</h3>
+                            <ul>
+                                <li data-aos="fade-right" data-aos-delay="450">Workplace representation</li>
+                                <li data-aos="fade-right" data-aos-delay="500">Pay equity initiatives</li>
+                                <li data-aos="fade-right" data-aos-delay="550">Leadership opportunities</li>
+                            </ul>
+                        </div>
+                        <div class="indicator" data-aos="fade-left" data-aos-delay="400">
+                            <h3>Social Inclusion</h3>
+                            <ul>
+                                <li data-aos="fade-left" data-aos-delay="450">Accessibility programs</li>
+                                <li data-aos="fade-left" data-aos-delay="500">Cultural integration</li>
+                                <li data-aos="fade-left" data-aos-delay="550">Community engagement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Urban Planning Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="200">
+                    <h2><i class="fas fa-city"></i> Sustainable Urban Planning</h2>
+                    <div id="smartCityMap" class="city-map" data-aos="zoom-in" data-aos-delay="300"></div>
+                    <div class="urban-features" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature" data-aos="flip-left" data-aos-delay="500">
+                            <i class="fas fa-tree"></i>
+                            <h4>Green Spaces</h4>
+                            <p>Urban parks and community gardens</p>
+                        </div>
+                        <div class="feature" data-aos="flip-left" data-aos-delay="600">
+                            <i class="fas fa-bicycle"></i>
+                            <h4>Mobility</h4>
+                            <p>Sustainable transportation networks</p>
+                        </div>
+                        <div class="feature" data-aos="flip-left" data-aos-delay="700">
+                            <i class="fas fa-home"></i>
+                            <h4>Housing</h4>
+                            <p>Affordable and sustainable housing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Health & Well-being Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="300">
+                    <h2><i class="fas fa-heartbeat"></i> Health & Well-being</h2>
+                    <div class="health-dashboard" data-aos="fade-up" data-aos-delay="400">
+                        <div class="health-metric" data-aos="fade-right" data-aos-delay="500">
+                            <h3>Community Health Index</h3>
+                            <div class="interactive-chart" data-aos="zoom-in" data-aos-delay="600">
+                                <canvas id="healthChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="wellness-programs" data-aos="fade-left" data-aos-delay="500">
+                            <h3>Wellness Initiatives</h3>
+                            <div class="program-grid">
+                                <div class="program" data-aos="zoom-in" data-aos-delay="600">
+                                    <i class="fas fa-running"></i>
+                                    <h4>Active Living</h4>
+                                    <p>Community fitness programs</p>
+                                </div>
+                                <div class="program" data-aos="zoom-in" data-aos-delay="700">
+                                    <i class="fas fa-apple-alt"></i>
+                                    <h4>Nutrition</h4>
+                                    <p>Healthy food access</p>
+                                </div>
+                                <div class="program" data-aos="zoom-in" data-aos-delay="800">
+                                    <i class="fas fa-brain"></i>
+                                    <h4>Mental Health</h4>
+                                    <p>Support services</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cultural Sustainability Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="400">
+                    <h2><i class="fas fa-globe-americas"></i> Cultural Sustainability</h2>
+                    <div class="culture-showcase" data-aos="fade-up" data-aos-delay="500">
+                        <div class="culture-stats" data-aos="fade-right" data-aos-delay="600">
+                            <div class="stat-item" data-aos="flip-up" data-aos-delay="700">
+                                <h3>3000+</h3>
+                                <p>Indigenous Languages</p>
+                            </div>
+                            <div class="stat-item" data-aos="flip-up" data-aos-delay="800">
+                                <h3>150+</h3>
+                                <p>Cultural Preservation Projects</p>
+                            </div>
+                        </div>
+                        <div class="cultural-practices" data-aos="fade-left" data-aos-delay="600">
+                            <h3>Traditional Knowledge</h3>
+                            <ul>
+                                <li data-aos="fade-left" data-aos-delay="700">Sustainable farming practices</li>
+                                <li data-aos="fade-left" data-aos-delay="750">Natural resource management</li>
+                                <li data-aos="fade-left" data-aos-delay="800">Traditional medicine</li>
+                                <li data-aos="fade-left" data-aos-delay="850">Craft preservation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="community-engagement" data-aos="fade-up">
+                <h2>Get Involved in Your Community</h2>
+                <div class="engagement-tools">
+                    <div class="tool-card" data-aos="fade-right" data-aos-delay="100">
+                        <i class="fas fa-comments"></i>
+                        <h3>Community Forum</h3>
+                        <p>Join discussions on local sustainability initiatives</p>
+                        <div class="forum-preview" data-aos="fade-up" data-aos-delay="200">
+                            <div class="forum-topics">
+                                <h4>Active Discussions</h4>
+                                <ul>
+                                    <li data-aos="fade-right" data-aos-delay="250">Local Food Security</li>
+                                    <li data-aos="fade-right" data-aos-delay="300">Urban Gardening</li>
+                                    <li data-aos="fade-right" data-aos-delay="350">Community Clean-up</li>
+                                </ul>
+                            </div>
+                            <a href="#" class="join-discussion" data-aos="zoom-in" data-aos-delay="400">Join Discussion →</a>
+                        </div>
+                    </div>
+                    <div class="tool-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Events Calendar</h3>
+                        <p>Find and participate in local sustainability events</p>
+                        <div class="calendar-preview" data-aos="fade-up" data-aos-delay="200">
+                            <div class="upcoming-events">
+                                <h4>Upcoming Events</h4>
+                                <ul>
+                                    <li data-aos="fade-right" data-aos-delay="250">Community Garden Workshop</li>
+                                    <li data-aos="fade-right" data-aos-delay="300">Social Innovation Summit</li>
+                                    <li data-aos="fade-right" data-aos-delay="350">Cultural Heritage Day</li>
+                                </ul>
+                            </div>
+                            <a href="#" class="view-calendar" data-aos="zoom-in" data-aos-delay="400">View Calendar →</a>
+                        </div>
+                    </div>
+                    <div class="tool-card" data-aos="fade-left" data-aos-delay="100">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Volunteer Network</h3>
+                        <p>Connect with organizations making a difference</p>
+                        <div class="volunteer-opportunities" data-aos="fade-up" data-aos-delay="200">
+                            <h4>Current Opportunities</h4>
+                            <ul>
+                                <li data-aos="fade-right" data-aos-delay="250">Youth Mentoring</li>
+                                <li data-aos="fade-right" data-aos-delay="300">Elder Care Support</li>
+                                <li data-aos="fade-right" data-aos-delay="350">Community Teaching</li>
+                            </ul>
+                            <a href="#" class="find-opportunities" data-aos="zoom-in" data-aos-delay="400">Find Opportunities →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="impact-tracker" data-aos="fade-up">
+                <h2>Track Your Social Impact</h2>
+                <div class="tracker-container" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tracker-form" data-aos="fade-right" data-aos-delay="200">
+                        <div class="input-group" data-aos="fade-up" data-aos-delay="250">
+                            <label for="activity">Activity Type</label>
+                            <select id="activity">
+                                <option value="volunteer">Volunteer Hours</option>
+                                <option value="donation">Community Donations</option>
+                                <option value="education">Educational Activities</option>
+                                <option value="advocacy">Advocacy Work</option>
+                            </select>
+                        </div>
+                        <div class="input-group" data-aos="fade-up" data-aos-delay="300">
+                            <label for="hours">Hours/Amount</label>
+                            <input type="number" id="hours" placeholder="Enter value">
+                        </div>
+                        <div class="input-group" data-aos="fade-up" data-aos-delay="350">
+                            <label for="date">Date</label>
+                            <input type="date" id="date">
+                        </div>
+                        <button type="button" id="track-impact" data-aos="zoom-in" data-aos-delay="400">Log Activity</button>
+                    </div>
+                    <div class="impact-summary" data-aos="fade-left" data-aos-delay="200">
+                        <h3>Your Impact Summary</h3>
+                        <div id="impact-stats" data-aos="fade-up" data-aos-delay="300">
+                            <!-- Impact statistics will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="tab-content" id="india-tab" style="display: none;">
+            <section class="hero india-hero animate__animated animate__fadeIn">
+                <div class="hero-content">
+                    <h1 class="animate__animated animate__slideInDown">Social Sustainability in India</h1>
+                    <p class="animate__animated animate__slideInUp animate__delay-1s">Balancing growth with equal opportunities, quality of life, and long-term social well-being across diverse communities</p>
+                    <div class="hero-stats animate__animated animate__fadeIn animate__delay-2s">
+                        <div class="hero-stat">
+                            <span class="stat-number">1.4B+</span>
+                            <span class="stat-desc">Population impacted</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-number">33%</span>
+                            <span class="stat-desc">Women in workforce</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-number">100</span>
+                            <span class="stat-desc">Smart cities mission</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wave-animation">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                        <path fill="#ffffff" fill-opacity="1" d="M0,192L48,186.7C96,181,192,171,288,154.7C384,139,480,117,576,128C672,139,768,181,864,186.7C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                    </svg>
+                </div>
+            </section>
+
+            <section class="content-grid">
+                <!-- Education & Sustainability Awareness Section -->
+                <div class="content-card" data-aos="fade-up">
+                    <h2><i class="fas fa-graduation-cap"></i> Education & Sustainability Awareness</h2>
+                    <div class="interactive-chart">
+                        <canvas id="indiaEducationChart"></canvas>
+                    </div>
+                    <p>Education is the backbone of social sustainability and economic growth in India.</p>
+                    <div class="education-initiatives">
+                        <h3>Key Initiatives & Challenges:</h3>
+                        <div class="highlight-item" data-aos="fade-right" data-aos-delay="100">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>National Education Policy (NEP) 2020</h4>
+                            <p>Focuses on holistic education, vocational training, and digital learning</p>
+                        </div>
+                        <div class="highlight-item" data-aos="fade-right" data-aos-delay="200">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Sarva Shiksha Abhiyan (SSA)</h4>
+                            <p>Aims to provide universal elementary education</p>
+                        </div>
+                        <div class="highlight-item" data-aos="fade-right" data-aos-delay="300">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Mid-Day Meal Scheme</h4>
+                            <p>Helps improve school enrollment and child nutrition</p>
+                        </div>
+                        <div class="highlight-item" data-aos="fade-right" data-aos-delay="400">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Digital India Mission</h4>
+                            <p>Expanding e-learning and smart classrooms</p>
+                        </div>
+                    </div>
+                    <div class="education-challenges" data-aos="fade-up">
+                        <h3>Challenges:</h3>
+                        <ul>
+                            <li><i class="fas fa-exclamation-triangle"></i> High dropout rates in rural areas</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Gender disparity in education, especially for girls</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Lack of access to technology in low-income communities</li>
+                        </ul>
+                    </div>
+                    <div class="future-focus" data-aos="zoom-in">
+                        <h3><i class="fas fa-lightbulb"></i> Future Focus:</h3>
+                        <p>Expanding AI-driven personalized learning and affordable digital education platforms</p>
+                    </div>
+                </div>
+
+                <!-- Social Equity & Justice Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="100">
+                    <h2><i class="fas fa-balance-scale"></i> Social Equity & Justice</h2>
+                    <p>Social sustainability requires equal opportunities, fair wages, and legal justice for all citizens.</p>
+                    <div class="equity-policies">
+                        <h3>Government Policies Supporting Social Equity:</h3>
+                        <div class="policy" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Reservation Policies</h4>
+                            <p>Ensuring education & job opportunities for Scheduled Castes (SC), Scheduled Tribes (ST), and Other Backward Classes (OBC)</p>
+                        </div>
+                        <div class="policy" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Right to Information (RTI) Act, 2005</h4>
+                            <p>Promotes transparency and accountability</p>
+                        </div>
+                        <div class="policy" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>National Rural Employment Guarantee Act (MGNREGA)</h4>
+                            <p>Provides 100 days of guaranteed employment for rural workers</p>
+                        </div>
+                        <div class="policy" data-aos="fade-up" data-aos-delay="400">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Rights of Persons with Disabilities Act, 2016</h4>
+                            <p>Ensures equal opportunities in education, employment, and accessibility</p>
+                        </div>
+                    </div>
+                    <div class="equity-challenges" data-aos="fade-up">
+                        <h3>Challenges:</h3>
+                        <ul>
+                            <li><i class="fas fa-exclamation-triangle"></i> Caste-based discrimination and inequalities</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Wage gap between urban & rural workers</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Limited legal protection for marginalized communities</li>
+                        </ul>
+                    </div>
+                    <div class="future-focus" data-aos="zoom-in">
+                        <h3><i class="fas fa-lightbulb"></i> Future Focus:</h3>
+                        <p>Strengthening judicial reforms, financial inclusion, and equal pay policies</p>
+                    </div>
+                </div>
+
+                <!-- Sustainable Urban Planning Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="200">
+                    <h2><i class="fas fa-city"></i> Sustainable Urban Planning & Smart Cities</h2>
+                    <p>With rapid urbanization, India faces housing shortages, pollution, and traffic congestion. Sustainable city planning aims to enhance urban living conditions while minimizing environmental impact.</p>
+                    <div class="urban-initiatives">
+                        <h3>Key Initiatives:</h3>
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="100">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Smart Cities Mission</h4>
+                            <p>100 cities selected for sustainable infrastructure, clean energy, and digital governance</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="200">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>PM Awas Yojana (Housing for All)</h4>
+                            <p>Focuses on affordable housing for low-income families</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="300">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Atal Mission for Rejuvenation and Urban Transformation (AMRUT)</h4>
+                            <p>Aims to improve water supply, waste management, and public transport</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="400">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Metro Expansion Projects</h4>
+                            <p>Cities like Delhi, Mumbai, Bengaluru, and Kochi are expanding metro networks for green mobility</p>
+                        </div>
+                    </div>
+                    <div class="urban-challenges" data-aos="fade-up">
+                        <h3>Challenges:</h3>
+                        <ul>
+                            <li><i class="fas fa-exclamation-triangle"></i> Overcrowding & pollution in metro cities</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Slum development & lack of basic amenities</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Waste management inefficiencies</li>
+                        </ul>
+                    </div>
+                    <div class="future-focus" data-aos="zoom-in">
+                        <h3><i class="fas fa-lightbulb"></i> Future Focus:</h3>
+                        <p>More eco-friendly urbanization with solar-powered buildings, water recycling, and electric transportation</p>
+                    </div>
+                </div>
+
+                <!-- Health & Well-being Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="300">
+                    <h2><i class="fas fa-heartbeat"></i> Health & Well-being in a Green Future</h2>
+                    <p>Social sustainability includes access to healthcare, mental health awareness, and disease prevention.</p>
+                    <div class="healthcare-programs">
+                        <h3>Key Healthcare Programs in India:</h3>
+                        <div class="program" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Ayushman Bharat Scheme</h4>
+                            <p>World's largest health insurance scheme for low-income families</p>
+                        </div>
+                        <div class="program" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>POSHAN Abhiyan</h4>
+                            <p>Aims to eliminate malnutrition in children and pregnant women</p>
+                        </div>
+                        <div class="program" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Swachh Bharat Abhiyan</h4>
+                            <p>Focuses on sanitation, hygiene, and open defecation-free India</p>
+                        </div>
+                        <div class="program" data-aos="fade-up" data-aos-delay="400">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>National Digital Health Mission (NDHM)</h4>
+                            <p>Expands telemedicine & digital health records</p>
+                        </div>
+                    </div>
+                    <div class="health-challenges" data-aos="fade-up">
+                        <h3>Challenges:</h3>
+                        <ul>
+                            <li><i class="fas fa-exclamation-triangle"></i> Poor doctor-patient ratio (1 doctor per 1,500 people)</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Rural healthcare infrastructure gaps</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Mental health stigma & lack of professionals</li>
+                        </ul>
+                    </div>
+                    <div class="future-focus" data-aos="zoom-in">
+                        <h3><i class="fas fa-lightbulb"></i> Future Focus:</h3>
+                        <p>AI-powered telemedicine, affordable healthcare access, and mental health awareness campaigns</p>
+                    </div>
+                </div>
+
+                <!-- Poverty Eradication Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="400">
+                    <h2><i class="fas fa-home"></i> Poverty Eradication & Sustainable Livelihoods</h2>
+                    <p>Poverty reduction is crucial for achieving social sustainability and economic stability.</p>
+                    <div class="poverty-initiatives">
+                        <h3>Government Initiatives for Poverty Reduction:</h3>
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="100">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Pradhan Mantri Jan Dhan Yojana (PMJDY)</h4>
+                            <p>Ensures financial inclusion with zero-balance bank accounts for low-income groups</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="200">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Deendayal Antyodaya Yojana (DAY-NULM)</h4>
+                            <p>Provides skill training & employment for the urban poor</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="300">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>National Rural Livelihood Mission (NRLM)</h4>
+                            <p>Helps self-help groups (SHGs) empower women in rural areas</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="400">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Direct Benefit Transfer (DBT) System</h4>
+                            <p>Reduces corruption in subsidy distribution</p>
+                        </div>
+                    </div>
+                    <div class="poverty-challenges" data-aos="fade-up">
+                        <h3>Challenges:</h3>
+                        <ul>
+                            <li><i class="fas fa-exclamation-triangle"></i> High rural unemployment</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Lack of financial literacy among the poor</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Widening income inequality between urban and rural areas</li>
+                        </ul>
+                    </div>
+                    <div class="future-focus" data-aos="zoom-in">
+                        <h3><i class="fas fa-lightbulb"></i> Future Focus:</h3>
+                        <p>Promoting entrepreneurship, digital banking, and micro-financing for self-employment opportunities</p>
+                    </div>
+                </div>
+
+                <!-- Gender Equality Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="500">
+                    <h2><i class="fas fa-venus-mars"></i> Gender Equality & Women Empowerment</h2>
+                    <p>Women's participation in education, workforce, and leadership is essential for social sustainability.</p>
+                    <div class="gender-initiatives">
+                        <h3>Major Initiatives for Women Empowerment:</h3>
+                        <div class="initiative" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Beti Bachao Beti Padhao (BBBP)</h4>
+                            <p>Encourages girl child education</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Ujjwala Yojana</h4>
+                            <p>Provides LPG gas connections to reduce indoor air pollution for women</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Maternity Benefit (POSHAN) Scheme</h4>
+                            <p>Supports working women with paid maternity leave</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-up" data-aos-delay="400">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Women's Reservation in Parliament</h4>
+                            <p>Aims for 33% seats for women in legislatures</p>
+                        </div>
+                    </div>
+                    <div class="gender-challenges" data-aos="fade-up">
+                        <h3>Challenges:</h3>
+                        <ul>
+                            <li><i class="fas fa-exclamation-triangle"></i> Gender pay gap – Women earn 20% less than men in India</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Limited women representation in politics & leadership roles</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Violence against women & safety concerns</li>
+                        </ul>
+                    </div>
+                    <div class="future-focus" data-aos="zoom-in">
+                        <h3><i class="fas fa-lightbulb"></i> Future Focus:</h3>
+                        <p>Strengthening laws against gender discrimination and workplace harassment</p>
+                    </div>
+                </div>
+
+                <!-- Cultural Sustainability Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="600">
+                    <h2><i class="fas fa-landmark"></i> Cultural Sustainability & Indigenous Knowledge</h2>
+                    <p>India's cultural diversity and traditional knowledge systems play an important role in sustainability.</p>
+                    <div class="cultural-efforts">
+                        <h3>Efforts to Preserve Indigenous & Cultural Sustainability:</h3>
+                        <div class="effort" data-aos="fade-right" data-aos-delay="100">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Geographical Indication (GI) Tags</h4>
+                            <p>Protects handicrafts & traditional products (e.g., Banarasi silk, Madhubani paintings)</p>
+                        </div>
+                        <div class="effort" data-aos="fade-right" data-aos-delay="200">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Tribal Empowerment Programs</h4>
+                            <p>Promotes forest rights, education, and healthcare for indigenous communities</p>
+                        </div>
+                        <div class="effort" data-aos="fade-right" data-aos-delay="300">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>UNESCO Cultural Heritage Sites in India</h4>
+                            <p>Preserving ancient sites like Ajanta-Ellora caves, Hampi, and Sunderbans</p>
+                        </div>
+                    </div>
+                    <div class="cultural-challenges" data-aos="fade-up">
+                        <h3>Challenges:</h3>
+                        <ul>
+                            <li><i class="fas fa-exclamation-triangle"></i> Loss of indigenous languages & traditions</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Limited economic support for tribal artisans</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Over-commercialization of cultural heritage sites</li>
+                        </ul>
+                    </div>
+                    <div class="future-focus" data-aos="zoom-in">
+                        <h3><i class="fas fa-lightbulb"></i> Future Focus:</h3>
+                        <p>Expanding digital preservation projects, eco-tourism, and financial aid for artisans</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="key-takeaways" data-aos="fade-up">
+                <h2><i class="fas fa-fire"></i> Key Takeaways</h2>
+                <div class="takeaways-container">
+                    <div class="takeaway" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fas fa-check"></i>
+                        <p>Education, social equity, and healthcare access are crucial for sustainability</p>
+                    </div>
+                    <div class="takeaway" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fas fa-check"></i>
+                        <p>Urban planning, smart cities, and green energy will drive future social development</p>
+                    </div>
+                    <div class="takeaway" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fas fa-check"></i>
+                        <p>Gender equality & cultural sustainability are vital for inclusive growth</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="india-action" data-aos="fade-up">
+                <h2>Empower a Sustainable Society Today!</h2>
+                <div class="action-grid">
+                    <div class="action-card" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fas fa-female"></i>
+                        <h3>Support Women-Led Businesses</h3>
+                        <p>Promote gender equality through economic empowerment</p>
+                        <a href="#" class="learn-more">Find Businesses →</a>
+                    </div>
+                    <div class="action-card" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fas fa-book-reader"></i>
+                        <h3>Donate to Rural Education</h3>
+                        <p>Help bridge the digital divide in education</p>
+                        <a href="#" class="learn-more">Donate Now →</a>
+                    </div>
+                    <div class="action-card" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Promote Indian Handicrafts</h3>
+                        <p>Support traditional artisans and cultural preservation</p>
+                        <a href="#" class="learn-more">Explore Crafts →</a>
+                    </div>
+                    <div class="action-card" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fas fa-hospital-user"></i>
+                        <h3>Support Healthcare Programs</h3>
+                        <p>Contribute to rural healthcare initiatives</p>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content" data-aos="fade-up">
+            <div class="footer-section" data-aos="fade-right" data-aos-delay="100">
+                <h3>About Us</h3>
+                <p>Creating positive social change through sustainable community development.</p>
+            </div>
+            <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li data-aos="fade-right" data-aos-delay="250"><a href="#education">Education</a></li>
+                    <li data-aos="fade-right" data-aos-delay="300"><a href="#equity">Social Equity</a></li>
+                    <li data-aos="fade-right" data-aos-delay="350"><a href="#urban">Urban Planning</a></li>
+                    <li data-aos="fade-right" data-aos-delay="400"><a href="#health">Health & Well-being</a></li>
+                </ul>
+            </div>
+            <div class="footer-section" data-aos="fade-left" data-aos-delay="300">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" data-aos="zoom-in" data-aos-delay="400"><i class="fab fa-twitter"></i></a>
+                    <a href="#" data-aos="zoom-in" data-aos-delay="450"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" data-aos="zoom-in" data-aos-delay="500"><i class="fab fa-facebook"></i></a>
+                    <a href="#" data-aos="zoom-in" data-aos-delay="550"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom" data-aos="fade-up" data-aos-delay="600">
+            <p>&copy; 2024 Sustainable Future. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/social-charts.js"></script>
+    <script src="js/impact-tracker.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true,
+            offset: 120,
+            delay: 100,
+            anchorPlacement: 'top-bottom'
+        });
+        
+        // Tab functionality
+        $(document).ready(function() {
+            // Show the first tab by default
+            $('.tab-content').hide();
+            $('#global-tab').show();
+            
+            $('.tab-button').click(function() {
+                $('.tab-button').removeClass('active');
+                $(this).addClass('active');
+                
+                const tabId = $(this).attr('data-tab');
+                $('.tab-content').hide();
+                $('#' + tabId + '-tab').fadeIn(400);
+                
+                // Refresh AOS when changing tabs
+                setTimeout(function() {
+                    AOS.refresh();
+                }, 500);
+            });
+            
+            // Add smooth scrolling
+            $('a[href*="#"]').on('click', function(e) {
+                e.preventDefault();
+                
+                $('html, body').animate(
+                    {
+                        scrollTop: $($(this).attr('href')).offset().top - 100,
+                    },
+                    500,
+                    'linear'
+                );
+            });
+            
+            // Add scroll-triggered animations for statistics
+            $(window).scroll(function() {
+                $('.stat-item h3, .stat-highlight h3, .hero-stat .stat-number').each(function() {
+                    const position = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowHeight = $(window).height();
+                    
+                    if (scroll > position - windowHeight + 200) {
+                        $(this).addClass('animated');
+                    }
+                });
+            });
+            
+            // Progress circle animation
+            $('.progress-circle').each(function() {
+                let value = $(this).data('value');
+                let left = $(this).find('.progress-left .progress-bar');
+                let right = $(this).find('.progress-right .progress-bar');
+                
+                if (value > 0) {
+                    if (value <= 50) {
+                        right.css('transform', 'rotate(' + (value / 100 * 360) + 'deg)');
+                    } else {
+                        right.css('transform', 'rotate(180deg)');
+                        left.css('transform', 'rotate(' + ((value - 50) / 100 * 360) + 'deg)');
+                    }
+                }
+            });
+            
+            // Theme toggle animation
+            $('#theme-toggle').on('click', function() {
+                $('body').toggleClass('dark-mode');
+                $(this).find('i').toggleClass('fa-moon fa-sun');
+            });
+        });
+    </script>
+    <style>
+        /* Dark mode visibility fix for social.html */
+        .dark-mode .content-card, 
+        .dark-mode .hero-content p,
+        .dark-mode .hero-content h1,
+        .dark-mode .hero-stat,
+        .dark-mode .tab-content,
+        .dark-mode h2, 
+        .dark-mode h3, 
+        .dark-mode h4,
+        .dark-mode p,
+        .dark-mode li,
+        .dark-mode .metric-item,
+        .dark-mode .highlight-item,
+        .dark-mode footer,
+        .dark-mode .footer-content,
+        .dark-mode .footer-section,
+        .dark-mode .social-links a,
+        .dark-mode .footer-bottom,
+        .dark-mode .progress-text,
+        .dark-mode .forum-topics h4,
+        .dark-mode .upcoming-events h4,
+        .dark-mode .volunteer-opportunities h4,
+        .dark-mode label,
+        .dark-mode .tracker-form,
+        .dark-mode .impact-summary {
+            color: #f0f0f0;
+        }
+        
+        .dark-mode .content-card {
+            background-color: rgba(30, 30, 40, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-mode .tab-button {
+            background-color: #2a2a35;
+            color: #f0f0f0;
+        }
+        
+        .dark-mode .tab-button.active {
+            background-color: #4a4a6a;
+            color: white;
+        }
+        
+        .dark-mode .hero-stat {
+            background-color: rgba(40, 40, 60, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-mode .tool-card,
+        .dark-mode .action-card,
+        .dark-mode .resource-card,
+        .dark-mode .forum-preview,
+        .dark-mode .calendar-preview,
+        .dark-mode .volunteer-opportunities,
+        .dark-mode .tracker-container {
+            background-color: rgba(40, 40, 60, 0.8);
+            color: #f0f0f0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-mode input,
+        .dark-mode select,
+        .dark-mode button {
+            background-color: rgba(50, 50, 65, 0.8);
+            color: #f0f0f0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark-mode input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .dark-mode button:hover {
+            background-color: rgba(70, 70, 90, 0.9);
+        }
+        
+        /* Updated progress ring colors for dark mode */
+        .dark-mode .progress-ring-circle-bg {
+            stroke: rgba(80, 80, 100, 0.3);
+        }
+        
+        .dark-mode .progress-ring-circle {
+            stroke: var(--primary-color, #a56cc1);
+        }
+        
+        /* Fix leaflet map controls in dark mode */
+        .dark-mode .leaflet-control-container .leaflet-control {
+            background-color: #333 !important;
+            color: #f0f0f0 !important;
+        }
+        
+        .dark-mode .leaflet-control-container .leaflet-control a {
+            color: #f0f0f0 !important;
+        }
+        
+        /* Animation classes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .hero-stat:hover {
+            animation: pulse 1.5s infinite;
+        }
+        
+        .resource-card:hover,
+        .action-card:hover,
+        .tool-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Progress circle styles */
+        .progress-circle {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .progress-ring-circle-bg {
+            stroke: rgba(200, 200, 200, 0.3);
+        }
+        
+        .progress-ring-circle {
+            stroke: var(--primary-color, #9b59b6);
+            transform-origin: center;
+            transform: rotate(-90deg);
+            transition: stroke-dashoffset 0.8s ease;
+        }
+        
+        .progress-text {
+            font-size: 16px;
+            font-weight: bold;
+            fill: currentColor;
+        }
+        
+        .metric-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Fix for map container */
+        .city-map {
+            height: 300px;
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</body>
+</html> 

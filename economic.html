@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Sustainability - Green Economy & Future Growth</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Enhanced Economic Page Styles */
+        :root {
+            --primary-green: #2e8b57;
+            --secondary-green: #3cb371;
+            --light-green: #e8f5e9;
+            --dark-green: #1b5e20;
+            --accent-gold: #ffd700;
+            --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            --transition-standard: all 0.3s ease-in-out;
+        }
+
+        body {
+            scroll-behavior: smooth;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: var(--transition-standard);
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+        }
+
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-card h2 {
+            color: var(--dark-green);
+            border-bottom: 2px solid var(--light-green);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .content-card h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-green);
+            transition: var(--transition-standard);
+        }
+
+        .content-card:hover h2:after {
+            width: 100px;
+        }
+
+        .business-type, .practice, .element, .framework, .highlight-item, .feature, .highlight-box, .initiative, .stat-item, .stat-highlight {
+            background: var(--light-green);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            transition: var(--transition-standard);
+            border-left: 3px solid transparent;
+        }
+
+        .business-type:hover, .practice:hover, .element:hover, .framework:hover, .highlight-item:hover, .feature:hover, .highlight-box:hover, .initiative:hover, .stat-item:hover, .stat-highlight:hover {
+            border-left: 3px solid var(--primary-green);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .case-study, .city, .success-item, .leader, .company {
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            background: #f9f9f9;
+            border-left: 3px solid var(--accent-gold);
+            transition: var(--transition-standard);
+        }
+
+        .case-study:hover, .city:hover, .success-item:hover, .leader:hover, .company:hover {
+            background: #f5f5f5;
+            transform: scale(1.02);
+        }
+
+        .action-card {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            transition: var(--transition-standard);
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .action-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(180deg, rgba(46, 139, 87, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+            transition: var(--transition-standard);
+            z-index: -1;
+        }
+
+        .action-card:hover::before {
+            height: 100%;
+        }
+
+        .action-card i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            transition: var(--transition-standard);
+        }
+
+        .action-card:hover i {
+            transform: scale(1.2);
+        }
+
+        .learn-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            transition: var(--transition-standard);
+            position: relative;
+        }
+
+        .learn-more::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary-green);
+            transition: var(--transition-standard);
+        }
+
+        .learn-more:hover {
+            color: var(--dark-green);
+        }
+
+        .learn-more:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.8) 0%, rgba(60, 179, 113, 0.8) 100%);
+            z-index: -1;
+        }
+
+        .economic-hero, .india-hero {
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .economic-hero {
+            background-image: url('images/economic-bg.jpg');
+            background-color: var(--primary-color-light);
+            background-blend-mode: overlay;
+            /* Fallback background in case image doesn't load */
+            background: linear-gradient(135deg, var(--primary-color-light) 0%, #3a7bd5 100%);
+        }
+
+        .india-hero {
+            background-image: url('images/india-economic-bg.jpg');
+            background-color: var(--accent-color);
+            background-blend-mode: overlay;
+            /* Fallback background in case image doesn't load */
+            background: linear-gradient(135deg, var(--accent-color) 0%, #4a00e0 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            min-width: 180px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition-standard);
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-desc {
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: block;
+            line-height: 1.4;
+        }
+
+        .wave-animation {
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .wave-animation svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Animation enhancements */
+        .btn-animate {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-animate:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(rgba(255, 255, 255, 0.2), transparent);
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.6s ease-out, opacity 0.4s ease-out;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .btn-animate:hover:before {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        /* Scrolling animations */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Card hover effects */
+        .content-card {
+            transition: var(--transition-standard);
+            position: relative;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary-green), var(--accent-gold), var(--secondary-green));
+            z-index: -2;
+            border-radius: 17px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .content-card:hover::before {
+            opacity: 1;
+        }
+
+        .content-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: -1;
+            border-radius: 15px;
+        }
+
+        /* Animate statistics */
+        @keyframes count-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-item h3, .stat-highlight h3, .hero-stat .stat-number {
+            animation: count-up 1.5s ease forwards;
+        }
+
+        /* Icon animation */
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .fa-recycle, .fa-sync-alt {
+            animation: spin-slow 10s linear infinite;
+            display: inline-block;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .hero-stat {
+                width: 80%;
+                max-width: 300px;
+            }
+        }
+
+        /* Dark mode text visibility fix */
+        .dark-mode .content-card, 
+        .dark-mode .hero-content p,
+        .dark-mode .hero-content h1,
+        .dark-mode .hero-stat,
+        .dark-mode .tab-content,
+        .dark-mode h2, 
+        .dark-mode h3, 
+        .dark-mode h4,
+        .dark-mode p,
+        .dark-mode li,
+        .dark-mode .metric-item,
+        .dark-mode .highlight-item {
+            color: #f0f0f0;
+        }
+        
+        .dark-mode .content-card {
+            background-color: rgba(30, 30, 40, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-mode .tab-button {
+            background-color: #2a2a35;
+            color: #f0f0f0;
+        }
+        
+        .dark-mode .tab-button.active {
+            background-color: #4a4a6a;
+            color: white;
+        }
+        
+        .dark-mode .hero-stat {
+            background-color: rgba(40, 40, 60, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-mode .action-card,
+        .dark-mode .resource-card {
+            background-color: rgba(40, 40, 60, 0.8);
+            color: #f0f0f0;
+        }
+        
+        /* ROI Calculator dark mode */
+        .dark-mode .calculator-container {
+            background-color: rgba(35, 35, 45, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-mode input, 
+        .dark-mode select {
+            background-color: rgba(50, 50, 65, 0.8);
+            color: #f0f0f0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #1a1a25;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .card,
+        .dark-mode .initiative-card,
+        .dark-mode .metric-card,
+        .dark-mode .calculator-container,
+        .dark-mode .stats-container,
+        .dark-mode .highlight-item {
+            background: #2a2a35;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .card h3,
+        .dark-mode .initiative-card h3,
+        .dark-mode .metric-card h3,
+        .dark-mode .highlight-item h3 {
+            color: #3498DB;
+        }
+
+        .dark-mode p,
+        .dark-mode li,
+        .dark-mode .stat-label,
+        .dark-mode .metric-value {
+            color: #e0e0e0;
+        }
+
+        .dark-mode .stat-value,
+        .dark-mode .metric-number {
+            color: #3498DB;
+        }
+
+        .dark-mode .input-group label {
+            color: #f0f0f0;
+        }
+
+        .dark-mode .input-group select,
+        .dark-mode .input-group input {
+            background: #2a2a35;
+            border-color: #3a3a45;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .tab-button {
+            background: #2a2a35;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .tab-button.active {
+            background: #3498DB;
+            color: #ffffff;
+        }
+
+        .dark-mode .progress-bar {
+            background: #3a3a45;
+        }
+
+        .dark-mode .progress-bar::after {
+            background: #3498DB;
+        }
+
+        .dark-mode .chart-container {
+            background: #2a2a35;
+            border-color: #3a3a45;
+        }
+
+        .dark-mode .legend-item {
+            color: #f0f0f0;
+        }
+
+        .dark-mode .green-economy-section,
+        .dark-mode .circular-economy-section,
+        .dark-mode .csr-section {
+            background: #1a1a25;
+        }
+
+        .dark-mode .highlight-item {
+            border-color: #3a3a45;
+        }
+
+        .dark-mode .highlight-item:hover {
+            background: #3a3a45;
+        }
+
+        .dark-mode .stat-card {
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .dark-mode .stat-card h4 {
+            color: #3498DB;
+        }
+
+        .dark-mode .action-link {
+            color: #3498DB;
+        }
+
+        .dark-mode .action-link:hover {
+            color: #2980B9;
+        }
+
+        .dark-mode .footer-content {
+            background: #2a2a35;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .footer-bottom {
+            background: #1a1a25;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .social-links a {
+            color: #3498DB;
+        }
+
+        .dark-mode .social-links a:hover {
+            color: #2980B9;
+        }
+
+        /* Enhanced chart styles for dark mode */
+        .dark-mode .chart-wrapper {
+            background: #2a2a35;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid #3a3a45;
+        }
+
+        /* ROI Calculator dark mode styles */
+        .dark-mode .calculator-section {
+            background: #2a2a35;
+        }
+
+        .dark-mode .calculator-form {
+            background: #2a2a35;
+        }
+
+        .dark-mode .result-card {
+            background: #3a3a45;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .result-value {
+            color: #3498DB;
+        }
+
+        /* Green Economy section dark mode */
+        .dark-mode .green-economy-bg {
+            background: linear-gradient(rgba(26, 26, 37, 0.9), rgba(26, 26, 37, 0.9)), var(--bg-image);
+        }
+
+        /* Ensure text remains visible in all states */
+        .dark-mode .btn,
+        .dark-mode .button,
+        .dark-mode input::placeholder {
+            color: #f0f0f0;
+        }
+
+        .dark-mode input:focus,
+        .dark-mode select:focus {
+            border-color: #3498DB;
+            outline: none;
+        }
+
+        /* Add subtle hover effects for dark mode */
+        .dark-mode .card:hover,
+        .dark-mode .initiative-card:hover,
+        .dark-mode .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">🌍 Sustainable Future</a>
+            </div>
+            <div class="nav-links">
+                <a href="environmental.html">Environmental 🌱</a>
+                <a href="economic.html" class="active">Economic 💰</a>
+                <a href="social.html">Social 👥</a>
+                <a href="sdg.html">SDGs 🎯</a>
+                <a href="technology.html">Technology 🚀</a>
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle" title="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="notifications" title="Enable notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero economic-hero animate__animated animate__fadeIn">
+            <div class="hero-content">
+                <h1 class="animate__animated animate__slideInDown">Green Economy & Future Growth</h1>
+                <p class="animate__animated animate__slideInUp animate__delay-1s">Discover how sustainable business practices drive economic prosperity</p>
+                <div class="hero-stats animate__animated animate__fadeIn animate__delay-2s">
+                    <div class="hero-stat">
+                        <span class="stat-number">$2.3T</span>
+                        <span class="stat-desc">Annual green economy market</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">24M+</span>
+                        <span class="stat-desc">Green jobs created by 2030</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number">-45%</span>
+                        <span class="stat-desc">Emissions reduction opportunity</span>
+                    </div>
+                </div>
+            </div>
+            <div class="wave-animation">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#ffffff" fill-opacity="1" d="M0,192L48,186.7C96,181,192,171,288,154.7C384,139,480,117,576,128C672,139,768,181,864,186.7C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="global">Global Perspective</button>
+                <button class="tab-button" data-tab="india">India Focus</button>
+            </div>
+        </div>
+
+        <div class="tab-content" id="global-tab" style="display: block;">
+            <section class="content-grid">
+                <!-- Sustainable Business Models Section -->
+                <div class="content-card" data-aos="fade-up">
+                    <h2><i class="fas fa-building"></i> Sustainable Business Models</h2>
+                    <div class="interactive-chart">
+                        <canvas id="businessModelChart"></canvas>
+                    </div>
+                    <div class="business-types">
+                        <div class="business-type" data-aos="fade-right" data-aos-delay="100">
+                            <i class="fas fa-recycle"></i>
+                            <h4>Circular Economy</h4>
+                            <p>Eliminating waste through continuous resource use</p>
+                        </div>
+                        <div class="business-type" data-aos="fade-right" data-aos-delay="200">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Green Products</h4>
+                            <p>Environmentally conscious product development</p>
+                        </div>
+                        <div class="business-type" data-aos="fade-right" data-aos-delay="300">
+                            <i class="fas fa-handshake"></i>
+                            <h4>Sharing Economy</h4>
+                            <p>Collaborative consumption models</p>
+                        </div>
+                        <div class="business-type" data-aos="fade-right" data-aos-delay="400">
+                            <i class="fas fa-sync-alt"></i>
+                            <h4>Product-as-a-Service</h4>
+                            <p>Offering products through service agreements rather than ownership</p>
+                        </div>
+                    </div>
+                    <div class="case-studies">
+                        <h3>Success Stories:</h3>
+                        <div class="case-study" data-aos="zoom-in" data-aos-delay="100">
+                            <h4>Patagonia</h4>
+                            <p>Pioneering circular business models through repair services and recycled materials</p>
+                        </div>
+                        <div class="case-study" data-aos="zoom-in" data-aos-delay="200">
+                            <h4>Interface</h4>
+                            <p>Transformed carpet manufacturing with Mission Zero® initiative, achieving carbon neutrality</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Green Finance Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="100">
+                    <h2><i class="fas fa-chart-line"></i> Green Finance & Investments</h2>
+                    <div class="interactive-chart">
+                        <canvas id="investmentChart"></canvas>
+                    </div>
+                    <div class="finance-categories">
+                        <div class="finance-category" data-aos="fade-up" data-aos-delay="100">
+                            <h3>Green Bonds</h3>
+                            <ul>
+                                <li>Climate bonds</li>
+                                <li>Environmental project funding</li>
+                                <li>Sustainable infrastructure</li>
+                            </ul>
+                        </div>
+                        <div class="finance-category" data-aos="fade-up" data-aos-delay="200">
+                            <h3>ESG Investing</h3>
+                            <ul>
+                                <li>Environmental criteria</li>
+                                <li>Social responsibility</li>
+                                <li>Corporate governance</li>
+                            </ul>
+                        </div>
+                        <div class="finance-category" data-aos="fade-up" data-aos-delay="300">
+                            <h3>Impact Investing</h3>
+                            <ul>
+                                <li>Measurable positive outcomes</li>
+                                <li>Double bottom line returns</li>
+                                <li>Focus on underserved areas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="finance-trends" data-aos="fade-up">
+                        <h3>Latest Trends:</h3>
+                        <ul>
+                            <li><strong>Green bonds market</strong> - Exceeded $1.5 trillion globally in 2023</li>
+                            <li><strong>Sustainability-linked loans</strong> - Growing at 20% annually</li>
+                            <li><strong>Carbon markets</strong> - Expanding to new sectors and regions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Corporate Social Responsibility Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="200">
+                    <h2><i class="fas fa-hands-helping"></i> Corporate Social Responsibility</h2>
+                    <div class="csr-stats">
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                            <h3>76%</h3>
+                            <p>Companies with CSR policies</p>
+                        </div>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                            <h3>$300B+</h3>
+                            <p>Annual CSR spending globally</p>
+                        </div>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                            <h3>89%</h3>
+                            <p>Millennials prefer brands with purpose</p>
+                        </div>
+                    </div>
+                    <div class="csr-pillars" data-aos="fade-up">
+                        <h3>CSR Pillars:</h3>
+                        <ul>
+                            <li>Environmental stewardship</li>
+                            <li>Ethical business practices</li>
+                            <li>Community engagement</li>
+                            <li>Employee welfare</li>
+                            <li>Supply chain responsibility</li>
+                            <li>Diversity and inclusion</li>
+                        </ul>
+                    </div>
+                    <div class="csr-leaders">
+                        <h3>Global CSR Leaders:</h3>
+                        <div class="leader-examples">
+                            <div class="leader" data-aos="fade-right" data-aos-delay="100">
+                                <h4>Microsoft</h4>
+                                <p>Carbon negative by 2030, water positive by 2030</p>
+                            </div>
+                            <div class="leader" data-aos="fade-right" data-aos-delay="200">
+                                <h4>Unilever</h4>
+                                <p>Sustainable Living Plan addressing health, environment, and livelihoods</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sustainable Tourism Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="300">
+                    <h2><i class="fas fa-umbrella-beach"></i> Sustainable Tourism</h2>
+                    <div class="tourism-practices">
+                        <div class="practice">
+                            <h3>Eco-Tourism</h3>
+                            <ul>
+                                <li>Natural habitat preservation</li>
+                                <li>Wildlife conservation</li>
+                                <li>Local community benefits</li>
+                            </ul>
+                        </div>
+                        <div class="practice">
+                            <h3>Community Tourism</h3>
+                            <ul>
+                                <li>Cultural preservation</li>
+                                <li>Local economic development</li>
+                                <li>Traditional knowledge sharing</li>
+                            </ul>
+                        </div>
+                        <div class="practice">
+                            <h3>Regenerative Tourism</h3>
+                            <ul>
+                                <li>Ecosystem restoration</li>
+                                <li>Positive environmental impact</li>
+                                <li>Tourism as a force for good</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tourism-case-studies">
+                        <h3>Case Studies:</h3>
+                        <div class="case-study">
+                            <h4>Costa Rica</h4>
+                            <p>Pioneered ecotourism certification and protected area management</p>
+                        </div>
+                        <div class="case-study">
+                            <h4>New Zealand</h4>
+                            <p>Tiaki Promise program promotes responsible tourism practices</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Economic Impact Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="400">
+                    <h2><i class="fas fa-balance-scale"></i> Economic Impact</h2>
+                    <div class="interactive-chart">
+                        <canvas id="economicImpactChart"></canvas>
+                    </div>
+                    <div class="impact-metrics">
+                        <h3>Key Metrics:</h3>
+                        <ul>
+                            <li>Job creation in green sectors</li>
+                            <li>Renewable energy cost reduction</li>
+                            <li>Sustainable market growth</li>
+                            <li>Resource efficiency savings</li>
+                            <li>Health cost reductions</li>
+                            <li>Climate resilience benefits</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sustainable Supply Chains Section (New) -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="500">
+                    <h2><i class="fas fa-truck"></i> Sustainable Supply Chains</h2>
+                    <div class="supply-chain-info">
+                        <p>Sustainable supply chain management integrates environmental, social, and economic considerations throughout the entire value chain, from raw materials to final product delivery.</p>
+                        <div class="chain-elements">
+                            <div class="element">
+                                <i class="fas fa-box"></i>
+                                <h3>Responsible Sourcing</h3>
+                                <ul>
+                                    <li>Ethical supplier standards</li>
+                                    <li>Fair trade certification</li>
+                                    <li>Local procurement initiatives</li>
+                                </ul>
+                            </div>
+                            <div class="element">
+                                <i class="fas fa-industry"></i>
+                                <h3>Eco-Efficient Production</h3>
+                                <ul>
+                                    <li>Energy efficiency measures</li>
+                                    <li>Waste reduction strategies</li>
+                                    <li>Clean production technologies</li>
+                                </ul>
+                            </div>
+                            <div class="element">
+                                <i class="fas fa-shipping-fast"></i>
+                                <h3>Green Logistics</h3>
+                                <ul>
+                                    <li>Route optimization</li>
+                                    <li>Alternative fuel vehicles</li>
+                                    <li>Packaging reduction</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="case-study">
+                            <h3>Case Study: Walmart</h3>
+                            <p>Project Gigaton initiative aims to reduce emissions across supply chain by 1 billion metric tons by 2030</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Global Policy Frameworks Section (New) -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="600">
+                    <h2><i class="fas fa-globe"></i> Global Policy Frameworks</h2>
+                    <div class="policy-frameworks">
+                        <div class="framework">
+                            <h3>UN Global Compact</h3>
+                            <p>World's largest corporate sustainability initiative with 10 principles for responsible business</p>
+                        </div>
+                        <div class="framework">
+                            <h3>Paris Agreement</h3>
+                            <p>International climate accord with economic implications for sustainable development</p>
+                        </div>
+                        <div class="framework">
+                            <h3>EU Green Deal</h3>
+                            <p>European roadmap for sustainable economic transition and carbon neutrality by 2050</p>
+                        </div>
+                        <div class="framework">
+                            <h3>TCFD</h3>
+                            <p>Task Force on Climate-related Financial Disclosures guiding climate risk reporting</p>
+                        </div>
+                    </div>
+                    <div class="policy-impact">
+                        <h3>Economic Impact:</h3>
+                        <ul>
+                            <li>Carbon pricing mechanisms</li>
+                            <li>Green procurement policies</li>
+                            <li>Climate risk disclosure requirements</li>
+                            <li>Subsidies for green technologies</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="calculator-section" data-aos="fade-up">
+                <h2>Sustainability ROI Calculator</h2>
+                <div class="calculator-container">
+                    <div class="calculator-form">
+                        <div class="input-group">
+                            <label for="investment">Initial Investment ($)</label>
+                            <input type="number" id="investment" placeholder="Enter amount">
+                        </div>
+                        <div class="input-group">
+                            <label for="timeframe">Timeframe (Years)</label>
+                            <input type="number" id="timeframe" placeholder="Enter years">
+                        </div>
+                        <div class="input-group">
+                            <label for="sector">Business Sector</label>
+                            <select id="sector">
+                                <option value="energy">Renewable Energy</option>
+                                <option value="waste">Waste Management</option>
+                                <option value="agriculture">Sustainable Agriculture</option>
+                                <option value="transport">Green Transportation</option>
+                                <option value="buildings">Green Buildings</option>
+                                <option value="digital">Digital Sustainability</option>
+                            </select>
+                        </div>
+                        <button type="button" id="calculate-roi" class="btn-animate">Calculate ROI</button>
+                    </div>
+                    <div class="calculator-result">
+                        <h3>Projected Returns</h3>
+                        <div id="roi-result">
+                            <!-- Results will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="tab-content" id="india-tab" style="display: none;">
+            <section class="hero india-hero animate__animated animate__fadeIn">
+                <div class="hero-content">
+                    <h1 class="animate__animated animate__slideInDown">Economic Sustainability in India</h1>
+                    <p class="animate__animated animate__slideInUp animate__delay-1s">Balancing growth with environmental and social sustainability in one of the world's fastest-growing economies</p>
+                    <div class="hero-stats animate__animated animate__fadeIn animate__delay-2s">
+                        <div class="hero-stat">
+                            <span class="stat-number">11%</span>
+                            <span class="stat-desc">Potential GDP boost from green growth</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-number">₹20L Cr</span>
+                            <span class="stat-desc">Renewable energy investment by 2030</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-number">500 GW</span>
+                            <span class="stat-desc">Non-fossil fuel energy target</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wave-animation">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                        <path fill="#ffffff" fill-opacity="1" d="M0,192L48,186.7C96,181,192,171,288,154.7C384,139,480,117,576,128C672,139,768,181,864,186.7C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                    </svg>
+                </div>
+            </section>
+
+            <section class="content-grid">
+                <!-- Green Economy in India Section -->
+                <div class="content-card" data-aos="fade-up">
+                    <h2><i class="fas fa-leaf"></i> Green Economy & Sustainable Business</h2>
+                    <div class="interactive-chart">
+                        <canvas id="indiaGreenEconomyChart"></canvas>
+                    </div>
+                    <div class="india-highlights">
+                        <div class="highlight-item" data-aos="fade-right" data-aos-delay="100">
+                            <i class="fas fa-building"></i>
+                            <h4>Government Initiatives</h4>
+                            <p>Green India Mission and National Adaptation Fund for Climate Change (NAFCC)</p>
+                        </div>
+                        <div class="highlight-item" data-aos="fade-right" data-aos-delay="200">
+                            <i class="fas fa-industry"></i>
+                            <h4>Corporate Leaders</h4>
+                            <p>Tata Group, Infosys, and Wipro implementing strong sustainability measures</p>
+                        </div>
+                        <div class="highlight-item" data-aos="fade-right" data-aos-delay="300">
+                            <i class="fas fa-lightbulb"></i>
+                            <h4>Case Study: Infosys</h4>
+                            <p>Became carbon neutral in 2020, setting an example for corporate sustainability in India</p>
+                        </div>
+                    </div>
+                    <div class="india-economic-trends" data-aos="fade-up">
+                        <h3>Economic Growth Trends:</h3>
+                        <ul>
+                            <li><strong>Green Economy:</strong> Expected to generate 24 million new jobs by 2030</li>
+                            <li><strong>GDP Impact:</strong> Climate adaptation could add 11% to India's GDP by 2050</li>
+                            <li><strong>Growth Drivers:</strong> Renewable energy, sustainable agriculture, green manufacturing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Circular Economy Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="100">
+                    <h2><i class="fas fa-recycle"></i> Circular Economy & Waste Management</h2>
+                    <div class="waste-stats">
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                            <h3>62M</h3>
+                            <p>Tons of waste generated annually</p>
+                        </div>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                            <h3>60%</h3>
+                            <p>Waste collected</p>
+                        </div>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                            <h3>20%</h3>
+                            <p>Waste processed</p>
+                        </div>
+                    </div>
+                    <div class="india-initiatives" data-aos="fade-up">
+                        <h3>Key Initiatives:</h3>
+                        <ul>
+                            <li><strong>E-Waste Management Rules 2016</strong> - Encouraging recycling and producer responsibility</li>
+                            <li><strong>Plastic Waste Management Rules 2022</strong> - Reducing single-use plastics</li>
+                            <li><strong>Swachh Bharat Abhiyan</strong> - National mission promoting waste management and cleanliness</li>
+                            <li><strong>Zero-Waste Cities</strong> - Indore and Mysuru implementing circular economy models</li>
+                        </ul>
+                    </div>
+                    <div class="circular-case-studies">
+                        <div class="case-study" data-aos="zoom-in" data-aos-delay="100">
+                            <h4>Attero Recycling</h4>
+                            <p>India's largest e-waste recycling company, recovering 98% of rare earth metals</p>
+                        </div>
+                        <div class="case-study" data-aos="zoom-in" data-aos-delay="200">
+                            <h4>Paperboat</h4>
+                            <p>Sustainable packaging innovations reducing plastic waste in beverage industry</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSR in India Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="200">
+                    <h2><i class="fas fa-hands-helping"></i> Corporate Social Responsibility</h2>
+                    <div class="interactive-chart">
+                        <canvas id="indiaCsrChart"></canvas>
+                    </div>
+                    <div class="india-csr-info" data-aos="fade-up">
+                        <p><strong>India became the first country to mandate CSR spending</strong> through the Companies Act 2013, requiring businesses to allocate 2% of profits for social and environmental initiatives.</p>
+                        <h3>Leading Companies in CSR:</h3>
+                        <div class="company-logos">
+                            <div class="company" data-aos="fade-right" data-aos-delay="100">
+                                <span>Tata</span>
+                                <p>Rural development</p>
+                            </div>
+                            <div class="company" data-aos="fade-right" data-aos-delay="200">
+                                <span>Reliance</span>
+                                <p>Healthcare initiatives</p>
+                            </div>
+                            <div class="company" data-aos="fade-right" data-aos-delay="300">
+                                <span>Infosys</span>
+                                <p>Education programs</p>
+                            </div>
+                            <div class="company" data-aos="fade-right" data-aos-delay="400">
+                                <span>ITC</span>
+                                <p>Sustainable agriculture</p>
+                            </div>
+                        </div>
+                        <div class="csr-impact" data-aos="fade-up">
+                            <h3>Impact Statistics:</h3>
+                            <div class="impact-stats">
+                                <div class="stat" data-aos="zoom-in" data-aos-delay="100">
+                                    <h4>₹25,000+ Cr</h4>
+                                    <p>Annual CSR spending in India</p>
+                                </div>
+                                <div class="stat" data-aos="zoom-in" data-aos-delay="200">
+                                    <h4>52%</h4>
+                                    <p>CSR funds directed to education and healthcare</p>
+                                </div>
+                                <div class="stat" data-aos="zoom-in" data-aos-delay="300">
+                                    <h4>24%</h4>
+                                    <p>Companies focusing on climate action in CSR</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sustainable Agriculture Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="300">
+                    <h2><i class="fas fa-seedling"></i> Sustainable Agriculture & Food Systems</h2>
+                    <div class="interactive-chart">
+                        <canvas id="indiaAgricultureChart"></canvas>
+                    </div>
+                    <div class="agriculture-initiatives">
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="100">
+                            <h3>PM-KUSUM Scheme</h3>
+                            <p>Supporting farmers in using solar energy for irrigation</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="200">
+                            <h3>Organic Farming</h3>
+                            <p>India ranks among the top 5 organic farming countries globally</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="300">
+                            <h3>Case Study: Sikkim</h3>
+                            <p>Became India's first 100% organic state in 2016</p>
+                        </div>
+                        <div class="initiative" data-aos="fade-right" data-aos-delay="400">
+                            <h3>Zero-Budget Natural Farming</h3>
+                            <p>Punjab & Haryana adopting chemical-free farming methods</p>
+                        </div>
+                    </div>
+                    <div class="agriculture-market" data-aos="fade-up">
+                        <h3>Market Development:</h3>
+                        <ul>
+                            <li><strong>Organic food market:</strong> Growing at 25% annually in India</li>
+                            <li><strong>Digital marketplaces:</strong> Connecting farmers directly to consumers</li>
+                            <li><strong>Agri-tech innovations:</strong> Precision farming reducing resource use by 30%</li>
+                            <li><strong>Export potential:</strong> India becoming global hub for organic food exports</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Smart Cities Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="400">
+                    <h2><i class="fas fa-city"></i> Smart Cities & Sustainable Urban Development</h2>
+                    <div class="smart-city-features">
+                        <div class="feature">
+                            <i class="fas fa-solar-panel"></i>
+                            <h4>Renewable Energy</h4>
+                            <p>Solar-powered infrastructure and smart grids</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-bus"></i>
+                            <h4>Public Transport</h4>
+                            <p>Electric bus networks in Delhi & Mumbai</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-building"></i>
+                            <h4>Green Buildings</h4>
+                            <p>Over 2,000 green-certified buildings across India</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-train"></i>
+                            <h4>Case Study: Bengaluru</h4>
+                            <p>Eco-friendly metro system using solar power</p>
+                        </div>
+                    </div>
+                    <div class="smart-cities-mission">
+                        <h3>Smart Cities Mission:</h3>
+                        <p>Launched in 2015, this flagship government program aims to develop 100 cities across India by incorporating smart solutions for infrastructure and services.</p>
+                        <div class="cities-examples">
+                            <div class="city">
+                                <h4>Indore</h4>
+                                <p>Leading in waste management with 100% waste segregation</p>
+                            </div>
+                            <div class="city">
+                                <h4>Surat</h4>
+                                <p>Solar energy integration and flood management systems</p>
+                            </div>
+                            <div class="city">
+                                <h4>Bhubaneswar</h4>
+                                <p>Smart mobility solutions and citizen engagement platforms</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Green Finance in India Section -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="500">
+                    <h2><i class="fas fa-chart-line"></i> Green Finance & Ethical Investments</h2>
+                    <div class="finance-highlights">
+                        <div class="highlight">
+                            <h3>$20B+</h3>
+                            <p>Green bonds issued in India for renewable energy and eco-friendly projects</p>
+                        </div>
+                        <div class="highlight">
+                            <h3>SEBI Mandates</h3>
+                            <p>ESG disclosures required for companies to ensure transparency</p>
+                        </div>
+                        <div class="highlight">
+                            <h3>RBI Policies</h3>
+                            <p>Green banking policies and financial incentives for eco-friendly businesses</p>
+                        </div>
+                        <div class="highlight">
+                            <h3>Case Study: SBI</h3>
+                            <p>Launched India's first Green Bond ($650 million) in 2018</p>
+                        </div>
+                    </div>
+                    <div class="green-finance-trends">
+                        <h3>Emerging Trends:</h3>
+                        <ul>
+                            <li><strong>Blended Finance:</strong> Public-private partnerships for sustainable infrastructure</li>
+                            <li><strong>Green Deposits:</strong> Banks offering special deposit schemes for green projects</li>
+                            <li><strong>Digital Green Finance:</strong> Fintech solutions for sustainable investments</li>
+                            <li><strong>Climate Risk Assessment:</strong> Financial institutions integrating climate risk in lending decisions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Renewable Energy Section (New) -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="600">
+                    <h2><i class="fas fa-sun"></i> Renewable Energy Revolution</h2>
+                    <div class="energy-stats">
+                        <div class="stat-highlight">
+                            <h3>175 GW</h3>
+                            <p>India's renewable energy capacity target by 2022</p>
+                        </div>
+                        <div class="stat-highlight">
+                            <h3>500 GW</h3>
+                            <p>Non-fossil fuel energy capacity target by 2030</p>
+                        </div>
+                        <div class="stat-highlight">
+                            <h3>42%</h3>
+                            <p>Electricity from renewable sources by 2030 (target)</p>
+                        </div>
+                    </div>
+                    <div class="energy-initiatives">
+                        <h3>Key Programs:</h3>
+                        <ul>
+                            <li><strong>National Solar Mission:</strong> Ambitious solar capacity expansion</li>
+                            <li><strong>Green Energy Corridor:</strong> Infrastructure for renewable energy transmission</li>
+                            <li><strong>Hydrogen Mission:</strong> Developing hydrogen as a clean energy source</li>
+                            <li><strong>International Solar Alliance:</strong> India-led global coalition for solar energy</li>
+                        </ul>
+                    </div>
+                    <div class="energy-success">
+                        <h3>Success Stories:</h3>
+                        <div class="success-item">
+                            <h4>Bhadla Solar Park, Rajasthan</h4>
+                            <p>World's largest solar park with 2,245 MW capacity</p>
+                        </div>
+                        <div class="success-item">
+                            <h4>ReNew Power</h4>
+                            <p>Leading renewable energy company with over 10 GW of assets</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Economy Section (New) -->
+                <div class="content-card" data-aos="fade-up" data-aos-delay="700">
+                    <h2><i class="fas fa-laptop-code"></i> Digital Economy & Sustainable Innovation</h2>
+                    <div class="digital-economy-info">
+                        <p>India's digital revolution is creating unprecedented opportunities for sustainable economic growth through technological innovation, financial inclusion, and efficient resource management.</p>
+                        <div class="digital-highlights">
+                            <div class="highlight-box">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h3>Digital India</h3>
+                                <p>Flagship program connecting rural areas and providing digital services</p>
+                            </div>
+                            <div class="highlight-box">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <h3>UPI & Digital Payments</h3>
+                                <p>Reducing paper-based transactions and promoting financial inclusion</p>
+                            </div>
+                            <div class="highlight-box">
+                                <i class="fas fa-database"></i>
+                                <h3>Smart Resource Management</h3>
+                                <p>IoT and AI applications for water, energy, and waste management</p>
+                            </div>
+                        </div>
+                        <div class="digital-stats">
+                            <h3>Impact Numbers:</h3>
+                            <ul>
+                                <li><strong>1.2 billion+</strong> mobile connections enabling digital inclusion</li>
+                                <li><strong>40%</strong> reduction in paper usage through digital documentation</li>
+                                <li><strong>50 million+</strong> farmers using digital platforms for sustainable practices</li>
+                                <li><strong>$1 trillion</strong> digital economy target by 2025</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="calculator-section india-calculator" data-aos="fade-up">
+                <h2>India Sustainability ROI Calculator</h2>
+                <div class="calculator-container">
+                    <div class="calculator-form">
+                        <div class="input-group">
+                            <label for="india-investment">Initial Investment (₹)</label>
+                            <input type="text" id="india-investment" placeholder="Enter amount">
+                        </div>
+                        <div class="input-group">
+                            <label for="india-timeframe">Timeframe (Years)</label>
+                            <input type="number" id="india-timeframe" placeholder="Enter years">
+                        </div>
+                        <div class="input-group">
+                            <label for="india-sector">Business Sector</label>
+                            <select id="india-sector">
+                                <option value="energy">Renewable Energy</option>
+                                <option value="waste">Waste Management</option>
+                                <option value="agriculture">Sustainable Agriculture</option>
+                                <option value="transport">Electric Mobility</option>
+                                <option value="textile">Sustainable Textile</option>
+                                <option value="digital">Green Technology</option>
+                                <option value="water">Water Management</option>
+                                <option value="tourism">Eco-Tourism</option>
+                            </select>
+                        </div>
+                        <button type="button" id="calculate-india-roi" class="btn-animate">Calculate ROI</button>
+                        <button type="button" id="currency-toggle">Switch to USD</button>
+                    </div>
+                    <div class="calculator-result">
+                        <h3>Projected Returns in India</h3>
+                        <div id="india-roi-result">
+                            <!-- Results will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="take-action india-action" data-aos="fade-up">
+                <h2>Be Part of India's Green Economy Revolution!</h2>
+                <div class="action-grid">
+                    <div class="action-card" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fas fa-rupee-sign"></i>
+                        <h3>Ethical Investments</h3>
+                        <p>Learn about green mutual funds and bonds in India</p>
+                        <a href="#" class="learn-more">Explore Options →</a>
+                    </div>
+                    <div class="action-card" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Carbon Footprint</h3>
+                        <p>Calculate your carbon footprint and find reduction strategies</p>
+                        <a href="#" class="learn-more">Calculate Now →</a>
+                    </div>
+                    <div class="action-card" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Business Ideas</h3>
+                        <p>Explore eco-friendly business opportunities in India</p>
+                        <a href="#" class="learn-more">Get Inspired →</a>
+                    </div>
+                    <div class="action-card" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Skills Development</h3>
+                        <p>Training programs for green economy careers in India</p>
+                        <a href="#" class="learn-more">Start Learning →</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="take-action" data-aos="fade-up">
+            <h2>Start Your Sustainable Business Journey</h2>
+            <div class="action-grid">
+                <div class="action-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Get Started</h3>
+                    <p>Access resources for sustainable business transformation</p>
+                    <a href="#" class="learn-more">Access Toolkit →</a>
+                </div>
+                <div class="action-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-users"></i>
+                    <h3>Join Network</h3>
+                    <p>Connect with sustainable business leaders</p>
+                    <a href="#" class="learn-more">Join Now →</a>
+                </div>
+                <div class="action-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Get Certified</h3>
+                    <p>Earn sustainable business certifications</p>
+                    <a href="#" class="learn-more">Learn More →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Promoting sustainable economic practices for a better future.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#business-models">Business Models</a></li>
+                    <li><a href="#green-finance">Green Finance</a></li>
+                    <li><a href="#csr">CSR</a></li>
+                    <li><a href="#calculator">ROI Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sustainable Future. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/economic-charts.js"></script>
+    <script src="js/roi-calculator.js"></script>
+    <script src="js/india-economic-charts.js"></script>
+    <script src="js/india-roi-calculator.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true,
+            offset: 120,
+            delay: 100,
+            anchorPlacement: 'top-bottom'
+        });
+        
+        // Tab functionality
+        $(document).ready(function() {
+            // Show the first tab by default
+            $('.tab-content').hide();
+            $('#global-tab').show();
+            
+            $('.tab-button').click(function() {
+                $('.tab-button').removeClass('active');
+                $(this).addClass('active');
+                
+                const tabId = $(this).attr('data-tab');
+                $('.tab-content').hide();
+                $('#' + tabId + '-tab').fadeIn(400);
+                
+                // Refresh AOS when changing tabs
+                setTimeout(function() {
+                    AOS.refresh();
+                }, 500);
+            });
+            
+            // ROI Calculator functionality
+            $('#calculate-roi').click(function(e) {
+                e.preventDefault();
+                calculateROI('global');
+            });
+            
+            $('#calculate-india-roi').click(function(e) {
+                e.preventDefault();
+                calculateROI('india');
+            });
+            
+            function calculateROI(region) {
+                // Sample calculation logic - would be customized based on real formulas
+                let investment = parseFloat(region === 'global' ? $('#investment').val() : $('#india-investment').val()) || 0;
+                let period = parseInt(region === 'global' ? $('#timeframe').val() : $('#india-timeframe').val()) || 1;
+                let sector = region === 'global' ? $('#sector').val() : $('#india-sector').val();
+                
+                // Different multipliers for different sectors
+                const multipliers = {
+                    'renewable-energy': 2.5,
+                    'sustainable-agriculture': 1.8,
+                    'circular-economy': 2.2,
+                    'green-transportation': 2.0,
+                    'eco-tourism': 1.7,
+                    'green-building': 1.9
+                };
+                
+                let multiplier = multipliers[sector] || 1.5;
+                
+                // Calculate estimated returns
+                let returns = investment * multiplier * period;
+                let roi = ((returns - investment) / investment) * 100;
+                
+                // Display results
+                if (region === 'global') {
+                    $('#roi-result').html('<h3>' + roi.toFixed(2) + '%</h3>');
+                    $('#estimated-returns').text('$' + returns.toLocaleString());
+                } else {
+                    $('#india-roi-result').html('<h3>' + roi.toFixed(2) + '%</h3>');
+                    $('#india-estimated-returns').text('₹' + (returns * 75).toLocaleString()); // Conversion to rupees
+                }
+                
+                // Animate the result
+                $('.calculator-result').addClass('animate__animated animate__pulse');
+                setTimeout(function() {
+                    $('.calculator-result').removeClass('animate__animated animate__pulse');
+                }, 1000);
+            }
+            
+            // Add smooth scrolling
+            $('a[href*="#"]').on('click', function(e) {
+                e.preventDefault();
+                
+                $('html, body').animate(
+                    {
+                        scrollTop: $($(this).attr('href')).offset().top - 100,
+                    },
+                    500,
+                    'linear'
+                );
+            });
+            
+            // Add scroll-triggered animations for statistics
+            $(window).scroll(function() {
+                $('.stat-item h3, .stat-highlight h3, .hero-stat .stat-number').each(function() {
+                    const position = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowHeight = $(window).height();
+                    
+                    if (scroll > position - windowHeight + 200) {
+                        $(this).addClass('animated');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
